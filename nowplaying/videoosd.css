@@ -1,0 +1,97 @@
+.osdHeader {
+    padding-bottom: 3vh;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+    .osdHeader .headerButton {
+        display: none;
+    }
+
+.videoOsdBottom {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .7);
+    color: #fff;
+    padding: 1%;
+    display: flex;
+    flex-direction: row;
+}
+
+.osdControls {
+    flex-grow: 1;
+}
+
+.videoOsdBottom .buttons {
+    padding: .25em 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.videoOsdBottom paper-icon-button {
+    color: #eee;
+}
+
+.osdPositionSlider {
+    width: 100%;
+}
+
+.osdVolumeSlider {
+    display: inline-flex !important;
+    width: 8vw;
+}
+
+.volumeButtons {
+    margin: 0 .5em 0 auto;
+}
+
+.osdTimeText {
+    margin-left: 1em;
+}
+
+.mouseIdle .videoOsdBottom .volumeButtons {
+    display: none;
+}
+
+.osdPoster {
+    width: 10%;
+    position: relative;
+    margin-right: .5em;
+}
+
+    .osdPoster img {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: auto;
+        width: 100%;
+        -moz-box-shadow: 0 0 1.9vh #000;
+        -webkit-box-shadow: 0 0 1.9vh #000;
+        box-shadow: 0 0 1.9vh #000;
+        border: solid 1px #222;
+        user-drag: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+
+.osdTitle {
+    margin: 0;
+    padding-left: .4em;
+}
+
+.osdMediaInfo {
+    margin-left: 1em;
+    color: #eee;
+    display: flex;
+    align-items: flex-end;
+}
+
+.osdTextContainer {
+    display: flex;
+    align-items: baseline;
+}

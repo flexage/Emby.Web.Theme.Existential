@@ -1,0 +1,203 @@
+.itemPageContainer {
+    top: 11.5%;
+    width: 94.5%;
+}
+
+.itemFloatClear {
+    clear: both;
+}
+
+.itemScrollFrame.clippedLeft {
+    margin-left: 28%;
+}
+
+.mainSection {
+    display: flex;
+}
+
+.smallBottomMargin {
+    margin-bottom: 1.9vh;
+}
+
+.itemPageLeft {
+    max-width: 40%;
+    padding-right: 1.7em;
+}
+
+.itemPageMain {
+    flex: 1;
+}
+
+.itemTitle {
+    margin: .1em 0 1.3em;
+    text-align: center;
+}
+
+.albumTitle {
+    text-align: left;
+    margin: .5em 0 0;
+}
+
+.albumMainSection .itemPageLeft {
+    display: none;
+}
+
+.seasonMainSection .itemPageLeft {
+    display: none;
+}
+
+.miniMainSection .itemPageLeft {
+    max-width: 20%;
+}
+
+.seasonMainSection .itemPageMain {
+    text-align: center;
+}
+
+.bulletSeparator {
+    color: #52B54B;
+}
+
+.mediaInfo {
+    margin: 1em 0;
+    display: flex;
+    align-items: center;
+}
+
+.albumMainSection .mediaInfo {
+    margin: 0;
+}
+
+.mainSection .itemPageButtons, .mainSection .itemPageUserDataIcons {
+    display: inline-flex;
+    justify-content: center;
+}
+
+.mainSection .itemPageButtons {
+    margin-right: 1em;
+}
+
+.itemPageFixedLeft .itemPageUserDataIcons {
+    margin-top: 1em;
+    text-align: center;
+}
+
+.albumMainSection .itemPageUserDataIcons {
+    display: none !important;
+}
+
+.itemPageFixedLeft .itemPageButtons paper-button {
+    font-size: 90%;
+    padding-top: .3em;
+    padding-bottom: .45em;
+}
+
+.detailImageContainer {
+    margin-bottom: 1em;
+    /* Eliminates the gap of space between the image and progress bar*/
+    line-height: 1;
+}
+
+    .detailImageContainer paper-progress {
+        position: relative;
+        /* Matches paper-progress height set in paperstyles */
+        top: -.56vh;
+    }
+
+.detailImage {
+    min-width: 50%;
+    max-width: 100%;
+    max-height: 67vh;
+    box-shadow: 0 0 1.85vh #000;
+    border: 1px solid #222;
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.itemPageFixedLeft {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    padding-top: 1.25em;
+}
+
+.leftFixedDetailImageContainer .detailImage {
+    min-width: 0 !important;
+    max-height: none !important;
+    max-width: none !important;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.trackList {
+    margin: 1em 0 0 -.5em;
+}
+
+.episodes {
+    margin: 1em 0 0 -.5em;
+    text-align: left;
+}
+
+.mediaInfoIcons {
+    margin-top: 1.5em;
+    display: flex;
+    align-items: center;
+}
+
+.mediaInfoIcon {
+    height: 3.7vh;
+    fill: #ccc;
+    color: #ccc;
+    vertical-align: middle;
+    margin-right: 1.1em;
+}
+
+    .mediaInfoIcon path {
+        fill: #fff;
+    }
+
+.mediaInfoText {
+    display: inline-block;
+    padding: .2em .6em;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #000;
+    background: #ddd;
+    border-radius: .2em;
+    font-weight: normal;
+    margin-right: 1em;
+    font-size: 84%;
+    height: auto;
+    text-transform: uppercase;
+    /*display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: normal;
+    margin-right: .6em;
+    font-size: 150%;
+    height: auto;
+    text-transform: uppercase;
+    color: #eee;
+    font-weight: 400;*/
+}
+
+.paperIconItemRightButton {
+    display: none;
+}
+
+.nextUpSection .backdropCard {
+    width: 30%;
+}
+
+.mediaInfoImageIcon img {
+    max-height: 100%;
+}
+
+.squareCard.chapterCard {
+    width: 20%;
+}

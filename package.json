@@ -1,0 +1,10 @@
+{
+    "name": "okuru",
+    "displayName": "Okuru",
+    "version": "1.0.0",
+    "description": "Xnappo Theme!",
+    "plugin": "plugin.js",
+    "homepage": "https://github.com/MediaBrowser/emby.web.plugins.soundeffects",
+    "thumb": "",
+    "backdrop": ""
+}

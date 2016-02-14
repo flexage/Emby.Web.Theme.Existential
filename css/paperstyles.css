@@ -1,0 +1,80 @@
+paper-dialog .buttons {
+    padding: 2em 1em 1em 2em;
+}
+
+paper-progress.block {
+    display: block;
+    width: 100%;
+}
+
+paper-progress.transparent #progressContainer {
+    background: rgba(0,0,0,.5) !important;
+}
+
+.paper-slider-0 #sliderKnobInner.paper-slider {
+    background-color: #52B54B;
+    border-color: #52B54B;
+}
+
+.paper-slider-0 paper-ripple.paper-slider {
+    color: #52B54B;
+}
+
+.paper-slider-0 #sliderKnobInner.paper-slider::before {
+    background-color: #52B54B !important;
+}
+
+paper-progress #primaryProgress {
+    background-color: #52B54B !important;
+}
+
+paper-progress #secondaryProgress {
+    background-color: #92B54B !important;
+}
+
+paper-icon-item {
+    cursor: pointer;
+}
+
+    paper-icon-item paper-item-body {
+        padding-top: .35em;
+        padding-bottom: .35em;
+    }
+
+.paperIconItemImage {
+    width: 7.4vh;
+    height: 7.4vh;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+paper-icon-item #contentIcon {
+    width: 8.8vh;
+}
+
+paper-icon-item.largeImage #contentIcon {
+    width: 28%;
+    margin-right: 2%;
+}
+
+paper-icon-item.largeImage {
+    padding: 1em 0 1em 1em;
+}
+
+    paper-icon-item.largeImage .paperIconItemImage {
+        width: 100%;
+        height: 24.4vh;
+        background-position: center center;
+        position: relative;
+    }
+
+.paperIconItemImage paper-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+paper-icon-item[focused] paper-item-body div {
+    color: inherit !important;
+}

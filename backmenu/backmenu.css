@@ -1,0 +1,25 @@
+.backMenu {
+    background-color: rgba(0, 0, 0, .6) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(1px);
+}
+
+.backMenuButton {
+    margin: 0 .5em;
+    color: #eee;
+}
+
+    .backMenuButton:focus {
+        color: #52B54B;
+    }
+
+.backMenuSeparator {
+    height: 13vh;
+    width: 2px;
+    background: #fff;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 1.1em;
+}

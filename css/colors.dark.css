@@ -1,0 +1,194 @@
+html {
+    color: #fff;
+}
+
+a {
+    color: #52B54B;
+    outline: none !important;
+}
+
+.themeContainer {
+    background: #121212;
+}
+
+    .themeContainer.withBackdrop {
+        background-color: rgba(6, 6, 6, .9);
+        transition: background-color 1000ms ease-out;
+    }
+
+        .themeContainer.withBackdrop.detailBackdrop {
+            background-color: rgba(6, 6, 6, .8);
+        }
+
+.headerLogo {
+    background-image: url(images/logowhite.png);
+}
+
+.fieldDescription {
+    color: #aaa;
+}
+
+paper-input label, paper-checkbox label, emby-dropdown-menu label {
+    color: #bbb !important;
+}
+
+paper-input .focused-line {
+    background-color: #52B54B !important;
+}
+
+.paperRaised, paper-button[raised] {
+    background: #404040;
+}
+
+    .paperRaised:focus, paper-button[focused]:not(.btnUserViewHeader) {
+        background: #52B54B;
+        color: #fff;
+    }
+
+.cardFooter {
+    background-color: #333;
+}
+
+.cardText.dim {
+    color: #aaa;
+}
+
+.card[focused] .cardBox, .card:focus .cardBox {
+    border-color: #52B54B;
+    /*border-color: rgba(0, 0, 0, .6);*/
+}
+
+.card[data-cardtype='embyconnect'] .cardImageContainer {
+    background-color: #52B54B;
+}
+
+.headerBackButton {
+    color: #aaa;
+}
+
+
+.userViewNames paper-button {
+    opacity: .25;
+}
+
+
+.userViewButtonText {
+    border-bottom: 2px solid transparent;
+}
+
+.userViewNames paper-button.selected {
+    color: #fff;
+    opacity: 1;
+}
+
+paper-dialog {
+    background: rgba(28,28,28,.94) !important;
+    color: #fff !important;
+}
+
+.albumsCard .cardImageContainer, .recordingsCard .cardImageContainer {
+    background: #38c;
+}
+
+.allGenericCard .cardImageContainer, .artistsCard .cardImageContainer {
+    background: #4CAF50;
+}
+
+.genresCard .cardImageContainer, .scheduledLiveTvCard .cardImageContainer {
+    background: #F44336;
+}
+
+.movieCollectionsCard .cardImageContainer {
+    background-color: #009688;
+}
+
+.movieGenresCard .cardImageContainer {
+    background-color: #009688;
+}
+
+.tvUpcomingCard .cardImageContainer {
+    background-color: #009688;
+}
+
+.emptyStar {
+    color: #bbb !important;
+}
+
+.userViewNames paper-button[focused] {
+    color: #52B54B !important;
+    opacity: 1;
+}
+
+    .userViewNames paper-button[focused] .userViewButtonText {
+        border-bottom-color: #52B54B;
+    }
+
+.defaultCardColor1 {
+    background-color: #009688;
+}
+
+.defaultCardColor2 {
+    background-color: #D32F2F;
+}
+
+.defaultCardColor3 {
+    background-color: #0288D1;
+}
+
+.defaultCardColor4 {
+    background-color: #388E3C;
+}
+
+.defaultCardColor5 {
+    background-color: #F57F17;
+}
+
+paper-slider #progressContainer {
+    background-color: #666 !important;
+}
+
+paper-item-body [secondary] {
+    color: #999 !important;
+}
+
+.selectedItemSecondaryInfo {
+    color: #ddd !important;
+}
+
+.paperIconItemMediaInfo {
+    color: #bbb !important;
+}
+
+paper-icon-item {
+    border: 1px solid transparent;
+}
+
+    paper-icon-item[focused] {
+        background-color: rgba(20,20,20,.90);
+        border: 1px solid #52B54B;
+        outline: none !important;
+    }
+
+    paper-icon-item:focus::before {
+        display: none;
+    }
+
+.btnUserData {
+    color: #aaa;
+}
+
+.btnUserDataOn {
+    color: #cc3333;
+}
+
+.tagline {
+    color: #FFEB3B;
+}
+
+paper-icon-button[disabled] {
+    color: #666 !important;
+}
+
+.sectionTitle {
+    color: #ccc;
+}

@@ -1,0 +1,42 @@
+.searchPageContainer {
+    position: absolute;
+    top: 4%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.searchFields {
+    text-align: center;
+}
+
+    .searchFields .alphaPicker {
+        margin-top: .7em;
+    }
+
+.iconSearch {
+    vertical-align: middle;
+    opacity: .5;
+}
+
+.txtSearch {
+    display: inline-block;
+    width: 40%;
+    vertical-align: middle;
+}
+
+.searchResults .backdropCard {
+    width: 25%;
+}
+
+.searchResults .squareCard {
+    width: 16.66666666666666667%;
+}
+
+.searchResults .portraitCard {
+    width: 16.66666666666666667%;
+}
+
+.searchHeader .headerRight {
+    display: none;
+}

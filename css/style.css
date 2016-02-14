@@ -1,0 +1,575 @@
+a {
+    text-decoration: none;
+}
+
+.hide {
+    display: none !important;
+}
+
+.headerLogo {
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 6.9vw;
+    height: 3.7vh;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.pageTitle {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    height: 5.6vh;
+}
+
+.pageTitleWithLogo {
+    background-position: left center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20.83vw;
+}
+
+.headerAudioPlayerButton {
+    color: #52B54B;
+}
+
+.headerBackButton {
+    margin-left: -1.6vw;
+    padding: 0 4px;
+}
+
+.mouseIdle .headerBackButton {
+    display: none;
+}
+
+.headerButton {
+    vertical-align: middle;
+    margin: 0 .25em;
+}
+
+.searchButtonContainer {
+    margin-right: .5em;
+    margin-left: .5em;
+}
+
+.headerUserButton img {
+    border-radius: 1000px;
+}
+
+.themeHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-left: 2.3%;
+    padding-right: 2.3%;
+    padding-top: 3vh;
+    display: flex;
+    align-items: center;
+}
+
+.headerLeft {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+}
+
+.headerRight {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.headerClock {
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 1em;
+}
+
+.externalPageContainer {
+    position: absolute;
+    top: 12%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.pageContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.noflex .pageContainer {
+    display: block;
+}
+
+.centeredPageContent {
+    width: 50%;
+    margin: 14vh auto auto;
+}
+
+.itemScrollFrame.scrollFrameX .scrollSlider {
+    padding-left: 4.5%;
+}
+
+.userViewNames {
+    /* Somehow this resolves the issue of the content getting distorted 
+        https://github.com/MediaBrowser/Emby.Theater.Windows/issues/270
+    */
+    overflow: hidden;
+}
+
+    .userViewNames .scrollFrameX .scrollSlider {
+        padding-left: 3.75%;
+    }
+
+.itemScrollFrame.scrollFrameX {
+    overflow: hidden;
+    padding-bottom: 3vh;
+    padding-top: 3vh;
+}
+
+    .itemScrollFrame.scrollFrameX.noTopPadding {
+        padding-top: 2.74vh;
+    }
+
+.tabbedPageContainer {
+    top: 11%;
+    align-items: initial;
+    justify-content: initial;
+}
+
+.verticalPageContainer {
+    display: block;
+    width: 97%;
+    margin: auto;
+    bottom: 0;
+    top: 9%;
+}
+
+.itemScrollFrame.scrollFrameY {
+    height: 100%;
+}
+
+.scrollFrameY > .scrollSlider {
+    padding: 0 2%;
+}
+
+.centeredPageContent h1, .horizontalPageContent h1 {
+    margin-top: 0;
+}
+
+.horizontalPageContent {
+    width: 100%;
+}
+
+.scrollFrameY {
+    overflow: hidden;
+}
+
+.scrollFrameX {
+    white-space: nowrap !important;
+}
+
+    .scrollFrameX .scrollSlider {
+        white-space: nowrap !important;
+    }
+
+.scrollX {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    position: relative;
+}
+
+    .scrollX::-webkit-scrollbar {
+        height: 0 !important;
+        display: none;
+    }
+
+::-webkit-scrollbar {
+    width: 1vh;
+    height: 1vh;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+    display: none;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: #3b3b3b;
+}
+
+::-webkit-scrollbar-thumb:vertical, ::-webkit-scrollbar-thumb:horizontal {
+    -webkit-border-radius: 2px;
+    background: #888 no-repeat center;
+}
+
+.cardColumn {
+    display: inline-block;
+    vertical-align: top;
+}
+
+    .cardColumn .card:not(.hide) {
+        display: block !important;
+    }
+
+.userViewNames h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.userViewNames .btnUserViewHeader {
+    min-width: initial;
+    text-transform: none !important;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: .2em;
+    font-size: 106%;
+}
+
+.userViewButtonText {
+    font-size: 110%;
+}
+
+.listNumbers {
+    position: fixed;
+    bottom: 2.5%;
+    right: 1.5%;
+}
+
+    .listNumbers .selectedIndex {
+        color: #4CAF50;
+    }
+
+.horizontalSection {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 1.25em;
+}
+
+.sectionTitle {
+    font-size: 90%;
+    padding-left: .1em;
+}
+
+.mediaInfoItem {
+    display: inline-block;
+    margin: 0 .9em 0 0;
+}
+
+iron-icon.mediaInfoItem {
+    width: 4vh;
+    height: 4vh;
+    margin-right: .6em;
+}
+
+.mediaInfoItem:last-child {
+    margin-right: 0;
+}
+
+.mediaInfoOfficialRating {
+    font-family: Montsterrat;
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: .1em .5em;
+    font-weight: bold;
+    line-height: 100%;
+    font-size: 90%;
+}
+
+paper-item-body .paperIconItemMediaInfo {
+    margin: .5em 0;
+}
+
+    paper-item-body .paperIconItemMediaInfo .starRatingContainer {
+        margin-left: -3px;
+    }
+
+h2.listItemTitle {
+    margin: 0;
+}
+
+.starRatingContainer {
+    display: inline-flex;
+    align-self: flex-start;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+    .starRatingContainer iron-icon {
+        width: 3.15vh;
+        height: 3.15vh;
+        color: #CB272A;
+    }
+
+paper-item-body .overview {
+    white-space: normal;
+}
+
+.selectedItemInfo {
+    position: fixed;
+    bottom: .5%;
+    left: 0;
+    right: 10%;
+    max-width: 60%;
+    font-size: 84%;
+    color: #ccc;
+    /*position: relative;
+    margin: auto;*/
+}
+
+.homePageContainer .selectedItemInfo {
+    right: 2%;
+    bottom: 2.5%;
+}
+
+.selectedItemInfo h2 {
+    margin: 0;
+}
+
+.selectedItemMediaInfo {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+    .selectedItemMediaInfo iron-icon {
+        width: 2.96vh;
+        height: 2.96vh;
+    }
+
+    .selectedItemMediaInfo .starRatingContainer iron-icon {
+        width: 2.96vh;
+        height: 2.96vh;
+    }
+
+.selectedItemInfoInnerWithLogo {
+    padding-left: 18%;
+}
+
+.selectedItemInfoLogo {
+    position: absolute;
+    top: 12.5%;
+    width: 16%;
+    bottom: 12.5%;
+    left: 0;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+}
+
+.selectedItemInfoInner > div {
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.verticalItemsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+    .verticalItemsContainer .backdropCard {
+        width: 25%;
+    }
+
+    .verticalItemsContainer .squareCard {
+        width: 16.66666666666666667%;
+    }
+
+    .verticalItemsContainer .portraitCard {
+        width: 16.66666666666666667%;
+    }
+
+    .verticalItemsContainer .personCard {
+        width: 14.285714285714285714285714285714%;
+    }
+
+.horizontalPageContent .squareCard .cardImageContainer {
+    width: 20.83vh;
+    height: 20.83vh;
+}
+
+.horizontalPageContent .backdropCard .cardImageContainer {
+    width: 37.04vh;
+    height: 20.83vh;
+}
+
+.horizontalPageContent .portraitCard .cardImageContainer {
+    width: 21.02vh;
+    height: 31.57vh;
+}
+
+.homePageContent .squareCard .cardImageContainer {
+    width: 21.85vh;
+    height: 21.85vh;
+}
+
+.homePageContent .backdropCard .cardImageContainer {
+    width: 38.89vh;
+    height: 21.85vh;
+}
+
+.homePageContent .portraitCard .cardImageContainer {
+    width: 21.94vh;
+    height: 32.96vh;
+}
+
+.listPageContent .squareCard .cardImageContainer {
+    width: 21.5vh;
+    height: 21.5vh;
+}
+
+.listPageContent .backdropCard .cardImageContainer {
+    width: 38.222vh;
+    height: 21.5vh;
+}
+
+.listPageContent .portraitCard .cardImageContainer {
+    width: 21.7333vh;
+    height: 32.6vh;
+}
+
+.horizontalPageContent .loginSquareCard {
+    width: 18vw;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+.paper-progress-0 #progressContainer.paper-progress, .paper-progress-0 .indeterminate.paper-progress:after {
+    height: .56vh;
+}
+
+paper-slider #progressContainer {
+    height: .56vh !important;
+}
+
+paper-slider #sliderKnob {
+    width: 44px !important;
+    height: 44px !important;
+    top: -4px !important;
+}
+
+paper-slider:hover #sliderKnob {
+    display: block;
+}
+
+.playlistPageContainer {
+    display: block;
+    width: 66%;
+    margin: 1em auto 0;
+    bottom: 0;
+    top: 12%;
+}
+
+.playlistIndexIndicatorImage {
+    background-size: initial !important;
+    background-image: url(images/equalizer_white.gif) !important;
+}
+
+.repeatActive {
+    color: #52B54B;
+}
+
+.criticRatingFresh {
+    padding-left: 3.15vh;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: auto 2.6vh;
+    background-image: url(images/fresh.png);
+}
+
+.criticRatingRotten {
+    padding-left: 3.15vh;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: auto 2.6vh;
+    background-image: url(images/rotten.png);
+}
+
+.listItemsMoreButtonContainer {
+    display: flex;
+}
+
+.listItemsMoreButton {
+    margin: .25em .25em .25em 0;
+    padding: .3em .7em;
+    font-size: 84%;
+    min-width: initial;
+    margin-left: auto;
+}
+
+.selectedItemPanel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 18%;
+    background-color: rgb(20, 20, 20);
+    z-index: 1;
+}
+
+.selectedItemPanelImage {
+    height: 18%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.selectedItemPanelContent {
+    padding: 1em;
+}
+
+.listPageButtons {
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+    .listPageButtons paper-button {
+        padding: .2em .6em .35em;
+        text-transform: none;
+        font-size: 86%;
+    }
+
+
+paper-slider.noKnob #sliderKnob {
+    display: none;
+}
+
+paper-slider.noKnob:hover #sliderKnob {
+    display: block;
+}
+
+.verticalSection {
+    margin-bottom: 6.5vh;
+}
+
+    .verticalSection > h2 {
+        margin-bottom: .25em;
+    }
+
+.mainSection .itemPageButtons paper-button, paper-button.mini {
+    padding: .25em .6em .4em;
+    font-size: 90%;
+    text-transform: none;
+}
