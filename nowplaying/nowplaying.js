@@ -1,6 +1,6 @@
 define(['playbackManager', 'datetime', './../components/backdrop', 'userdataButtons'], function (playbackManager, datetime, themeBackdrop, userdataButtons) {
 
-    var themeId = 'clarity';
+    var themeId = 'existential';
 	
 	return function (view, params) {
 
@@ -22,7 +22,7 @@ define(['playbackManager', 'datetime', './../components/backdrop', 'userdataButt
 
                 themeBackdrop.setBackdrops([item]);
 
-                Clarity.CardBuilder.buildCards([item], {
+                Existential.CardBuilder.buildCards([item], {
                     shape: 'squareCard',
                     width: 640,
                     itemsContainer: view.querySelector('.nowPlayingCardContainer'),

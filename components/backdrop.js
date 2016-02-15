@@ -1,6 +1,6 @@
 define([], function () {
 
-    var themeId = 'clarity';
+    var themeId = 'existential';
 	
 	function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;

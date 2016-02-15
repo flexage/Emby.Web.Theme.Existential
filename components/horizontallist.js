@@ -43,7 +43,7 @@ define(['loading', './focushandler', 'focusManager'], function (loading, focusHa
                 cardOptions.shape = cardOptions.shape || 'auto';
                 cardOptions.rows = cardOptions.rows;
 
-                Clarity.CardBuilder.buildCards(result.Items, cardOptions);
+                Existential.CardBuilder.buildCards(result.Items, cardOptions);
 
                 loading.hide();
 

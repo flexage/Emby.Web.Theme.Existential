@@ -1,8 +1,8 @@
 {
-    "name": "clarity",
-    "displayName": "Clarity",
+    "name": "existential",
+    "displayName": "Existential",
     "version": "1.0.0",
-    "description": "Clarity is a clean, modern, and elegant theme.",
+    "description": "Existential is a clean, modern, and elegant theme.",
     "plugin": "plugin.js",
     "homepage": "https://github.com/flexage",
     "thumb": "",

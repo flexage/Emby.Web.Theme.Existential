@@ -11,12 +11,12 @@ define([], function () {
                 return;
             }
 
-            Clarity.CardBuilder.buildCards(result.Items, {
+            Existential.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'backdropCard',
                 rows: 3,
-                width: Clarity.CardBuilder.homeThumbWidth,
+                width: Existential.CardBuilder.homeThumbWidth,
                 preferThumb: true,
                 autoFocus: autoFocus
             });
@@ -53,7 +53,7 @@ define([], function () {
 
         return Emby.Models.latestChannelItems(options).then(function (result) {
 
-            Clarity.CardBuilder.buildCards(result.Items, {
+            Existential.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'autoHome',

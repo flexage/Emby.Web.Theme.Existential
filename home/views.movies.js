@@ -1,6 +1,6 @@
 define(['./spotlight', 'imageLoader', 'focusManager'], function (spotlight, imageLoader, focusManager) {
 
-    var themeId = 'clarity';
+    var themeId = 'existential';
 
 	// function loadResume(element, parentId) {
     //
@@ -16,12 +16,12 @@ define(['./spotlight', 'imageLoader', 'focusManager'], function (spotlight, imag
     //
     //         var resumeSection = element.querySelector('.resumeSection');
     //
-    //         Clarity.CardBuilder.buildCards(result.Items, {
+    //         Existential.CardBuilder.buildCards(result.Items, {
     //             parentContainer: resumeSection,
     //             itemsContainer: resumeSection.querySelector('.itemsContainer'),
     //             shape: 'backdropCard',
     //             rows: 3,
-    //             width: Clarity.CardBuilder.homeThumbWidth,
+    //             width: Existential.CardBuilder.homeThumbWidth,
     //             preferThumb: true
     //         });
     //     });
@@ -41,12 +41,12 @@ define(['./spotlight', 'imageLoader', 'focusManager'], function (spotlight, imag
 
             var resumeSection = element.querySelector('.latestSection');
 
-            Clarity.CardBuilder.buildCards(result, {
+            Existential.CardBuilder.buildCards(result, {
                 parentContainer: resumeSection,
                 itemsContainer: resumeSection.querySelector('.itemsContainer'),
                 shape: 'portraitCard',
                 rows: 1,
-                width: Clarity.CardBuilder.homePortraitWidth
+                width: Existential.CardBuilder.homePortraitWidth
             });
         });
     }
@@ -96,10 +96,10 @@ define(['./spotlight', 'imageLoader', 'focusManager'], function (spotlight, imag
 
     // function getRecommendationHtml(recommendation) {
     //
-    //     var cardsHtml = Clarity.CardBuilder.buildCardsHtml(recommendation.Items, {
+    //     var cardsHtml = Existential.CardBuilder.buildCardsHtml(recommendation.Items, {
     //         shape: 'portraitCard',
     //         rows: 2,
-    //         width: Clarity.CardBuilder.homePortraitWidth
+    //         width: Existential.CardBuilder.homePortraitWidth
     //     });
     //
     //     var html = '';

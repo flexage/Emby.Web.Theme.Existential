@@ -1,6 +1,6 @@
 define(['./spotlight', 'focusManager'], function (spotlight, focusManager) {
 
-	var themeId = 'clarity';
+	var themeId = 'existential';
 	
     function loadResume(element, parentId) {
 
@@ -16,12 +16,12 @@ define(['./spotlight', 'focusManager'], function (spotlight, focusManager) {
 
             var section = element.querySelector('.resumeSection');
 
-            Clarity.CardBuilder.buildCards(result.Items, {
+            Existential.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'backdropCard',
                 rows: 3,
-                width: Clarity.CardBuilder.homeThumbWidth,
+                width: Existential.CardBuilder.homeThumbWidth,
                 preferThumb: true,
                 addImageData: true
             });
@@ -40,12 +40,12 @@ define(['./spotlight', 'focusManager'], function (spotlight, focusManager) {
 
             var section = element.querySelector('.nextUpSection');
 
-            Clarity.CardBuilder.buildCards(result.Items, {
+            Existential.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'backdropCard',
                 rows: 3,
-                width: Clarity.CardBuilder.homeThumbWidth,
+                width: Existential.CardBuilder.homeThumbWidth,
                 preferThumb: true,
                 addImageData: true
             });
@@ -68,12 +68,12 @@ define(['./spotlight', 'focusManager'], function (spotlight, focusManager) {
 
             var section = element.querySelector('.latestSection');
 
-            Clarity.CardBuilder.buildCards(result, {
+            Existential.CardBuilder.buildCards(result, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'backdropCard',
                 rows: 3,
-                width: Clarity.CardBuilder.homeThumbWidth,
+                width: Existential.CardBuilder.homeThumbWidth,
                 preferThumb: true,
                 showGroupCount: true
             });

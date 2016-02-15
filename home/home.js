@@ -1,6 +1,6 @@
 define(['loading', './../components/tabbedpage', './../components/backdrop', 'focusManager', 'playbackManager'], function (loading, tabbedPage, themeBackdrop, focusManager, playbackManager) {
 
-    var themeId = 'clarity';
+    var themeId = 'existential';
 
     function updateFooterClock() {
 
@@ -36,7 +36,6 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
         var dateEl = document.querySelector('.footerDate');
 
         if (dateEl){
-            console.log("DATEEL IS EXISTING");
             dateEl.innerHTML = dateString;
         }
     }
@@ -77,6 +76,7 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
         var needsRefresh;
 
         updateFooterClock();
+
         setInterval(updateFooterClock, 50000);
 
         function reloadTabData(tabView) {

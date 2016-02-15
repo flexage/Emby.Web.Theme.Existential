@@ -1,6 +1,6 @@
 define(['loading', 'alphapicker', './../components/horizontallist', './../components/focushandler', './../components/tabbedpage', './../components/backdrop', 'focusManager'], function (loading, alphaPicker, horizontalList, focusHandler, tabbedPage, themeBackdrop, focusManager) {
 
-    var themeId = 'clarity';
+    var themeId = 'existential';
 	
 	return function (view, params) {
 
@@ -152,7 +152,7 @@ define(['loading', 'alphapicker', './../components/horizontallist', './../compon
 
         function renderGenres(page, pageParams, autoFocus, slyFrame, resolve) {
 
-            self.listController = new Clarity.HorizontalList({
+            self.listController = new Existential.HorizontalList({
 
                 itemsContainer: page.querySelector('.contentScrollSlider'),
                 getItemsMethod: function (startIndex, limit) {
@@ -168,7 +168,7 @@ define(['loading', 'alphapicker', './../components/horizontallist', './../compon
                     shape: 'backdropCard',
                     rows: 3,
                     preferThumb: true,
-                    width: Clarity.CardBuilder.homeThumbWidth
+                    width: Existential.CardBuilder.homeThumbWidth
                 },
                 listCountElement: page.querySelector('.listCount'),
                 listNumbersElement: page.querySelector('.listNumbers'),
@@ -415,7 +415,7 @@ define(['loading', 'alphapicker', './../components/horizontallist', './../compon
                     section.classList.add('hide');
                 }
 
-                Clarity.CardBuilder.buildCards(result.Items, {
+                Existential.CardBuilder.buildCards(result.Items, {
                     itemsContainer: section.querySelector('.itemsContainer'),
                     shape: 'auto',
                     rows: 2
@@ -452,7 +452,7 @@ define(['loading', 'alphapicker', './../components/horizontallist', './../compon
                     section.classList.add('hide');
                 }
 
-                Clarity.CardBuilder.buildCards(result.Items, {
+                Existential.CardBuilder.buildCards(result.Items, {
                     itemsContainer: section.querySelector('.itemsContainer'),
                     shape: 'auto',
                     rows: 3

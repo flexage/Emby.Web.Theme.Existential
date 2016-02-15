@@ -18,7 +18,7 @@ define([], function () {
                 return;
             }
 
-            Clarity.CardBuilder.buildCards(result.Items, {
+            Existential.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'autoHome',

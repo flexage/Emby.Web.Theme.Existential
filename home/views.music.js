@@ -1,6 +1,6 @@
 define([], function () {
 
-    var themeId = 'clarity';
+    var themeId = 'existential';
 	
 	function loadLatest(element, parentId) {
 
@@ -18,11 +18,11 @@ define([], function () {
 
             var section = element.querySelector('.latestSection');
 
-            Clarity.CardBuilder.buildCards(result, {
+            Existential.CardBuilder.buildCards(result, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'autoHome',
-                width: Clarity.CardBuilder.homePortraitWidth
+                width: Existential.CardBuilder.homePortraitWidth
             });
         });
     }
@@ -45,11 +45,11 @@ define([], function () {
 
             var section = element.querySelector('.playlistsSection');
 
-            Clarity.CardBuilder.buildCards(result.Items, {
+            Existential.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'autoHome',
-                width: Clarity.CardBuilder.homePortraitWidth,
+                width: Existential.CardBuilder.homePortraitWidth,
                 showTitle: true
             });
         });
@@ -75,11 +75,11 @@ define([], function () {
 
             var section = element.querySelector('.recentlyPlayedSection');
 
-            Clarity.CardBuilder.buildCards(result.Items, {
+            Existential.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'autoHome',
-                width: Clarity.CardBuilder.homePortraitWidth,
+                width: Existential.CardBuilder.homePortraitWidth,
                 action: 'instantmix'
             });
         });
@@ -105,11 +105,11 @@ define([], function () {
 
             var section = element.querySelector('.frequentlyPlayedSection');
 
-            Clarity.CardBuilder.buildCards(result.Items, {
+            Existential.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'autoHome',
-                width: Clarity.CardBuilder.homePortraitWidth,
+                width: Existential.CardBuilder.homePortraitWidth,
                 action: 'instantmix'
             });
         });
@@ -134,11 +134,11 @@ define([], function () {
 
             var section = element.querySelector('.favoriteSongsSection');
 
-            Clarity.CardBuilder.buildCards(result.Items, {
+            Existential.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'autoHome',
-                width: Clarity.CardBuilder.homePortraitWidth,
+                width: Existential.CardBuilder.homePortraitWidth,
                 action: 'instantmix'
             });
         });
@@ -163,11 +163,11 @@ define([], function () {
 
             var section = element.querySelector('.favoriteAlbumsSection');
 
-            Clarity.CardBuilder.buildCards(result.Items, {
+            Existential.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'autoHome',
-                width: Clarity.CardBuilder.homePortraitWidth
+                width: Existential.CardBuilder.homePortraitWidth
             });
         });
     }
@@ -190,11 +190,11 @@ define([], function () {
 
             var section = element.querySelector('.favoriteArtistsSection');
 
-            Clarity.CardBuilder.buildCards(result.Items, {
+            Existential.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'autoHome',
-                width: Clarity.CardBuilder.homePortraitWidth
+                width: Existential.CardBuilder.homePortraitWidth
             });
         });
     }

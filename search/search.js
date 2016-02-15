@@ -157,7 +157,7 @@ define(['loading', 'alphapicker', 'slyScroller', './../components/focushandler']
             cardOptions.shape = 'autoVertical';
             cardOptions.scalable = true;
 
-            Clarity.CardBuilder.buildCards(items, cardOptions);
+            Existential.CardBuilder.buildCards(items, cardOptions);
         }
 
         function initAlphaPicker(view) {
