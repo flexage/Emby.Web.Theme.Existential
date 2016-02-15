@@ -1,6 +1,6 @@
 define(['userSettings'], function (userSettings) {
 
-    var settingsPrefix = 'okuru-';
+    var settingsPrefix = 'clarity-';
     var obj = function () {
 
         var self = this;

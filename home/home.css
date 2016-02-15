@@ -1,8 +1,85 @@
-.wideSpotlightCard {
+/*.wideSpotlightCard {
     width: 100%;
 }
 
-    .wideSpotlightCard .cardImageContainer {
-        width: auto !important;
-        height: 44.26vh;
-    }
+.wideSpotlightCard .cardImageContainer {
+    width: auto !important;
+    height: 44.26vh;
+}*/
+
+.themeHeader {
+    display: none;
+}
+
+.homePageContainer {
+    top: 0;
+}
+
+.homePageContainer .latestSection {
+    position: absolute;
+    bottom: 240px;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+    margin: 0;
+    padding: 12px 10px;
+    background-color: violet;
+}
+
+.userViewNames {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    padding: 50px 100px 150px 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-size: 2em;
+}
+
+.headerClock {
+    display: none;
+}
+
+.footerClock {
+    position: absolute;
+    bottom: 131;
+    right: 0;
+    z-index: 15;
+    width: 150px;
+    text-align: center;
+    color: #fff;
+    padding: 0;
+    font-size: 2em;
+}
+.footerClock > .hour {
+    font-weight: 700;
+}
+.footerClock > .minutes {
+    font-weight: 200;
+}
+.footerClock > .suffix {
+    font-size: 0.6em;
+    text-transform: uppercase;
+}
+
+.footerDate {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 15;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    opacity: 0.2;
+}
+
+.userViewButtonText {
+    width: 300px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom-width: 4px;
+}

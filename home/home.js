@@ -1,7 +1,46 @@
 define(['loading', './../components/tabbedpage', './../components/backdrop', 'focusManager', 'playbackManager'], function (loading, tabbedPage, themeBackdrop, focusManager, playbackManager) {
 
-    var themeId = 'okuru';
-	
+    var themeId = 'clarity';
+
+    function updateFooterClock() {
+
+        var date = new Date();
+        var time = date.toLocaleTimeString().toLowerCase();
+
+        var dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        var dateString = date.toLocaleDateString("en-GB", dateOptions);
+        console.log("dateString", dateString);
+
+        if (time.indexOf('am') != -1 || time.indexOf('pm') != -1) {
+
+            var hour = date.getHours() % 12;
+            var suffix = date.getHours() > 11 ? 'pm' : 'am';
+            if (!hour) {
+                hour = 12;
+            }
+            var minutes = date.getMinutes();
+
+            if (minutes < 10) {
+                minutes = '0' + minutes;
+            }
+
+            time = '<span class="hour">' + hour + '</span><span class="minutes">' + minutes + '</span><span class="suffix">' +  suffix + '</span>';
+        }
+
+        var clock = document.querySelector('.footerClock');
+
+        if (clock) {
+            clock.innerHTML = time;
+        }
+
+        var dateEl = document.querySelector('.footerDate');
+
+        if (dateEl){
+            console.log("DATEEL IS EXISTING");
+            dateEl.innerHTML = dateString;
+        }
+    }
+
 	function loadViewHtml(page, parentId, html, viewName, autoFocus, self) {
 
         var homeScrollContent = page.querySelector('.contentScrollSlider');
@@ -37,12 +76,15 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
         var self = this;
         var needsRefresh;
 
+        updateFooterClock();
+        setInterval(updateFooterClock, 50000);
+
         function reloadTabData(tabView) {
 
             if (!needsRefresh) {
                 return;
             }
-            
+
             var activeElement = document.activeElement;
             var card = activeElement ? parentWithClass(activeElement, 'card') : null;
             var itemId = card ? card.getAttribute('data-id') : null;

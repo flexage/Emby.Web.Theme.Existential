@@ -10,7 +10,7 @@ define(['datetime', 'imageLoader', 'connectionManager', 'itemHelper', 'mediaInfo
             if (options.rows !== 0) {
                 options.rows = 2;
             }
-            options.width = Okuru.CardBuilder.homePortraitWidth;
+            options.width = Clarity.CardBuilder.homePortraitWidth;
         }
         else if (primaryImageAspectRatio && primaryImageAspectRatio > 1.34) {
             options.shape = 'backdropCard';
@@ -19,7 +19,7 @@ define(['datetime', 'imageLoader', 'connectionManager', 'itemHelper', 'mediaInfo
                 options.rows = 3;
             }
 
-            options.width = Okuru.CardBuilder.homeThumbWidth;
+            options.width = Clarity.CardBuilder.homeThumbWidth;
         }
         else {
             options.shape = 'squareCard';
@@ -247,16 +247,16 @@ define(['datetime', 'imageLoader', 'connectionManager', 'itemHelper', 'mediaInfo
 
                 var currentItemHtml = '';
 
-                if (options.rows && itemsInRow == 0) {
-
-                    if (hasOpenRow) {
-                        currentItemHtml += '</div>';
-                        hasOpenRow = false;
-                    }
-
-                    currentItemHtml += '<div class="cardColumn">';
-                    hasOpenRow = true;
-                }
+                // if (options.rows && itemsInRow == 0) {
+                //
+                //     if (hasOpenRow) {
+                //         currentItemHtml += '</div>';
+                //         hasOpenRow = false;
+                //     }
+                //
+                //     currentItemHtml += '<div class="cardColumn">';
+                //     hasOpenRow = true;
+                // }
 
                 var cardClass = className;
                 currentItemHtml += buildCard(i, renderItem, apiClient, options, cardClass);
@@ -699,7 +699,7 @@ define(['datetime', 'imageLoader', 'connectionManager', 'itemHelper', 'mediaInfo
 
             imageLoader.lazyChildren(options.itemsContainer);
         } else {
-            
+
             options.itemsContainer.innerHTML = html;
             options.itemsContainer.cardBuilderHtml = null;
         }
@@ -722,7 +722,7 @@ define(['datetime', 'imageLoader', 'connectionManager', 'itemHelper', 'mediaInfo
             var value = listItemsMoreButton.getAttribute('data-indexvalue');
             var parentid = listItemsMoreButton.getAttribute('data-parentid');
 
-            Emby.Page.show(Emby.PluginManager.mapRoute('okuru', 'list/list.html') + '?parentid=' + parentid + '&genreId=' + value);
+            Emby.Page.show(Emby.PluginManager.mapRoute('clarity', 'list/list.html') + '?parentid=' + parentid + '&genreId=' + value);
         }
     }
 
@@ -736,8 +736,8 @@ define(['datetime', 'imageLoader', 'connectionManager', 'itemHelper', 'mediaInfo
         getProgressBarHtml: getProgressBarHtml
     };
 
-    window.Okuru = window.Okuru || {};
-    window.Okuru.CardBuilder = cardBuilder;
+    window.Clarity = window.Clarity || {};
+    window.Clarity.CardBuilder = cardBuilder;
 
     return cardBuilder;
 });

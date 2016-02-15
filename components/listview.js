@@ -43,8 +43,8 @@ define(['itemHelper', 'mediaInfo', 'paper-icon-item', 'paper-item-body'], functi
             } else {
                 html += '<div class="paperIconItemImage" item-icon>';
             }
-            html += Okuru.CardBuilder.getPlayedIndicator(item);
-            var progressHtml = Okuru.CardBuilder.getProgressBarHtml(item);
+            html += Clarity.CardBuilder.getPlayedIndicator(item);
+            var progressHtml = Clarity.CardBuilder.getProgressBarHtml(item);
 
             if (progressHtml) {
                 html += progressHtml;

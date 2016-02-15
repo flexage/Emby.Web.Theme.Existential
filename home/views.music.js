@@ -1,6 +1,6 @@
 define([], function () {
 
-    var themeId = 'okuru';
+    var themeId = 'clarity';
 	
 	function loadLatest(element, parentId) {
 
@@ -18,11 +18,11 @@ define([], function () {
 
             var section = element.querySelector('.latestSection');
 
-            Okuru.CardBuilder.buildCards(result, {
+            Clarity.CardBuilder.buildCards(result, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'autoHome',
-                width: Okuru.CardBuilder.homePortraitWidth
+                width: Clarity.CardBuilder.homePortraitWidth
             });
         });
     }
@@ -45,11 +45,11 @@ define([], function () {
 
             var section = element.querySelector('.playlistsSection');
 
-            Okuru.CardBuilder.buildCards(result.Items, {
+            Clarity.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'autoHome',
-                width: Okuru.CardBuilder.homePortraitWidth,
+                width: Clarity.CardBuilder.homePortraitWidth,
                 showTitle: true
             });
         });
@@ -75,11 +75,11 @@ define([], function () {
 
             var section = element.querySelector('.recentlyPlayedSection');
 
-            Okuru.CardBuilder.buildCards(result.Items, {
+            Clarity.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'autoHome',
-                width: Okuru.CardBuilder.homePortraitWidth,
+                width: Clarity.CardBuilder.homePortraitWidth,
                 action: 'instantmix'
             });
         });
@@ -105,11 +105,11 @@ define([], function () {
 
             var section = element.querySelector('.frequentlyPlayedSection');
 
-            Okuru.CardBuilder.buildCards(result.Items, {
+            Clarity.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'autoHome',
-                width: Okuru.CardBuilder.homePortraitWidth,
+                width: Clarity.CardBuilder.homePortraitWidth,
                 action: 'instantmix'
             });
         });
@@ -134,11 +134,11 @@ define([], function () {
 
             var section = element.querySelector('.favoriteSongsSection');
 
-            Okuru.CardBuilder.buildCards(result.Items, {
+            Clarity.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'autoHome',
-                width: Okuru.CardBuilder.homePortraitWidth,
+                width: Clarity.CardBuilder.homePortraitWidth,
                 action: 'instantmix'
             });
         });
@@ -163,11 +163,11 @@ define([], function () {
 
             var section = element.querySelector('.favoriteAlbumsSection');
 
-            Okuru.CardBuilder.buildCards(result.Items, {
+            Clarity.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'autoHome',
-                width: Okuru.CardBuilder.homePortraitWidth
+                width: Clarity.CardBuilder.homePortraitWidth
             });
         });
     }
@@ -190,11 +190,11 @@ define([], function () {
 
             var section = element.querySelector('.favoriteArtistsSection');
 
-            Okuru.CardBuilder.buildCards(result.Items, {
+            Clarity.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'autoHome',
-                width: Okuru.CardBuilder.homePortraitWidth
+                width: Clarity.CardBuilder.homePortraitWidth
             });
         });
     }

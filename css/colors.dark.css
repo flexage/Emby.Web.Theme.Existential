@@ -1,9 +1,17 @@
+/*color: #BBE8139A;*/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100);
+
+* {
+    font-family: 'Roboto', sans-serif !important;
+}
+
 html {
     color: #fff;
 }
 
 a {
-    color: #52B54B;
+    color: rgba(232, 19, 154, 0.7);
     outline: none !important;
 }
 
@@ -33,7 +41,7 @@ paper-input label, paper-checkbox label, emby-dropdown-menu label {
 }
 
 paper-input .focused-line {
-    background-color: #52B54B !important;
+    background-color: rgba(232, 19, 154, 0.7) !important;
 }
 
 .paperRaised, paper-button[raised] {
@@ -41,7 +49,7 @@ paper-input .focused-line {
 }
 
     .paperRaised:focus, paper-button[focused]:not(.btnUserViewHeader) {
-        background: #52B54B;
+        background: rgba(232, 19, 154, 0.7);
         color: #fff;
     }
 
@@ -54,12 +62,12 @@ paper-input .focused-line {
 }
 
 .card[focused] .cardBox, .card:focus .cardBox {
-    border-color: #52B54B;
+    border-color: rgba(232, 19, 154, 0.7);
     /*border-color: rgba(0, 0, 0, .6);*/
 }
 
 .card[data-cardtype='embyconnect'] .cardImageContainer {
-    background-color: #52B54B;
+    background-color: rgba(232, 19, 154, 0.7);
 }
 
 .headerBackButton {
@@ -115,12 +123,12 @@ paper-dialog {
 }
 
 .userViewNames paper-button[focused] {
-    color: #52B54B !important;
+    color: #fff !important;
     opacity: 1;
 }
 
     .userViewNames paper-button[focused] .userViewButtonText {
-        border-bottom-color: #52B54B;
+        border-bottom-color: rgba(232, 19, 154, 0.7);
     }
 
 .defaultCardColor1 {
@@ -165,7 +173,7 @@ paper-icon-item {
 
     paper-icon-item[focused] {
         background-color: rgba(20,20,20,.90);
-        border: 1px solid #52B54B;
+        border: 1px solid rgba(232, 19, 154, 0.7);
         outline: none !important;
     }
 

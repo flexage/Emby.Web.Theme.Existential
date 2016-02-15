@@ -1,7 +1,7 @@
 define(['loading', 'datetime', 'playbackManager', 'imageLoader', 'userdataButtons', 'itemHelper', './../components/focushandler', './../components/backdrop', './../components/listview', 'mediaInfo', 'focusManager', './../themesettings'],
     function (loading, datetime, playbackManager, imageLoader, userdataButtons, itemHelper, focusHandler, themeBackdrop, listview, mediaInfo, focusManager, themeSettings) {
 
-        var themeId = 'okuru';
+        var themeId = 'clarity';
 		
 		function focusMainSection() {
 
@@ -133,7 +133,7 @@ define(['loading', 'datetime', 'playbackManager', 'imageLoader', 'userdataButton
 
                 if (url && item.Type != "Season" && item.Type != "BoxSet") {
                     detailImage.classList.remove('hide');
-                    detailImage.innerHTML = '<img class="detailImage" src="' + url + '" />' + Okuru.CardBuilder.getProgressBarHtml(item);
+                    detailImage.innerHTML = '<img class="detailImage" src="' + url + '" />' + Clarity.CardBuilder.getProgressBarHtml(item);
                 } else {
                     detailImage.classList.add('hide');
                     detailImage.innerHTML = '';
@@ -450,7 +450,7 @@ define(['loading', 'datetime', 'playbackManager', 'imageLoader', 'userdataButton
                     focusManager.autoFocus(view);
                 }
 
-                Okuru.CardBuilder.buildCards(result.Items, {
+                Clarity.CardBuilder.buildCards(result.Items, {
                     parentContainer: section,
                     itemsContainer: section.querySelector('.itemsContainer'),
                     shape: 'autoVertical',
@@ -716,7 +716,7 @@ define(['loading', 'datetime', 'playbackManager', 'imageLoader', 'userdataButton
 
             Emby.Models.items(query).then(function (result) {
 
-                Okuru.CardBuilder.buildCards(result.Items, {
+                Clarity.CardBuilder.buildCards(result.Items, {
                     parentContainer: element,
                     itemsContainer: element.querySelector('.itemsContainer'),
                     shape: listOptions.shape,
@@ -867,7 +867,7 @@ define(['loading', 'datetime', 'playbackManager', 'imageLoader', 'userdataButton
 
                 section.classList.remove('hide');
 
-                Okuru.CardBuilder.buildCards(result.Items, {
+                Clarity.CardBuilder.buildCards(result.Items, {
                     parentContainer: section,
                     itemsContainer: section.querySelector('.itemsContainer'),
                     shape: 'autoVertical',
@@ -928,7 +928,7 @@ define(['loading', 'datetime', 'playbackManager', 'imageLoader', 'userdataButton
 
                 section.classList.remove('hide');
 
-                Okuru.CardBuilder.buildCards(items, {
+                Clarity.CardBuilder.buildCards(items, {
                     parentContainer: section,
                     itemsContainer: section.querySelector('.itemsContainer'),
                     shape: 'autoVertical',
@@ -989,7 +989,7 @@ define(['loading', 'datetime', 'playbackManager', 'imageLoader', 'userdataButton
 
                 section.querySelector('h2').innerHTML = Globalize.translate('SimilarTo', item.Name);
 
-                Okuru.CardBuilder.buildCards(result.Items, {
+                Clarity.CardBuilder.buildCards(result.Items, {
                     parentContainer: section,
                     itemsContainer: section.querySelector('.itemsContainer'),
                     shape: 'autoVertical',

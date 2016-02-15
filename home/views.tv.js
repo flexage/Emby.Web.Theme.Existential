@@ -1,6 +1,6 @@
 define(['./spotlight', 'focusManager'], function (spotlight, focusManager) {
 
-	var themeId = 'okuru';
+	var themeId = 'clarity';
 	
     function loadResume(element, parentId) {
 
@@ -16,12 +16,12 @@ define(['./spotlight', 'focusManager'], function (spotlight, focusManager) {
 
             var section = element.querySelector('.resumeSection');
 
-            Okuru.CardBuilder.buildCards(result.Items, {
+            Clarity.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'backdropCard',
                 rows: 3,
-                width: Okuru.CardBuilder.homeThumbWidth,
+                width: Clarity.CardBuilder.homeThumbWidth,
                 preferThumb: true,
                 addImageData: true
             });
@@ -40,12 +40,12 @@ define(['./spotlight', 'focusManager'], function (spotlight, focusManager) {
 
             var section = element.querySelector('.nextUpSection');
 
-            Okuru.CardBuilder.buildCards(result.Items, {
+            Clarity.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'backdropCard',
                 rows: 3,
-                width: Okuru.CardBuilder.homeThumbWidth,
+                width: Clarity.CardBuilder.homeThumbWidth,
                 preferThumb: true,
                 addImageData: true
             });
@@ -68,12 +68,12 @@ define(['./spotlight', 'focusManager'], function (spotlight, focusManager) {
 
             var section = element.querySelector('.latestSection');
 
-            Okuru.CardBuilder.buildCards(result, {
+            Clarity.CardBuilder.buildCards(result, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'backdropCard',
                 rows: 3,
-                width: Okuru.CardBuilder.homeThumbWidth,
+                width: Clarity.CardBuilder.homeThumbWidth,
                 preferThumb: true,
                 showGroupCount: true
             });

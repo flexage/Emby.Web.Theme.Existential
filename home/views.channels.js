@@ -11,12 +11,12 @@ define([], function () {
                 return;
             }
 
-            Okuru.CardBuilder.buildCards(result.Items, {
+            Clarity.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'backdropCard',
                 rows: 3,
-                width: Okuru.CardBuilder.homeThumbWidth,
+                width: Clarity.CardBuilder.homeThumbWidth,
                 preferThumb: true,
                 autoFocus: autoFocus
             });
@@ -53,7 +53,7 @@ define([], function () {
 
         return Emby.Models.latestChannelItems(options).then(function (result) {
 
-            Okuru.CardBuilder.buildCards(result.Items, {
+            Clarity.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'autoHome',

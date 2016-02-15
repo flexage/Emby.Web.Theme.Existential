@@ -18,7 +18,7 @@ define([], function () {
                 return;
             }
 
-            Okuru.CardBuilder.buildCards(result.Items, {
+            Clarity.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
                 shape: 'autoHome',

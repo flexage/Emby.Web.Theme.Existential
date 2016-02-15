@@ -31,9 +31,9 @@ define(['playbackManager', 'pluginManager'], function (playbackManager, pluginMa
 
         var self = this;
 
-        self.name = 'Okuru';
+        self.name = 'Clarity';
         self.type = 'theme';
-        self.id = 'okuru';
+        self.id = 'clarity';
 		var settingsObjectName = self.id + 'Settings';
 
         var dependencyPrefix = self.id;
