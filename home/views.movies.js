@@ -170,9 +170,9 @@ define(['./spotlight', 'imageLoader', 'focusManager'], function (spotlight, imag
 
         var self = this;
 
-        if (autoFocus) {
-            focusManager.autoFocus(element);
-        }
+        // if (autoFocus) {
+        //     focusManager.autoFocus(element);
+        // }
 
         self.loadData = function (isRefresh) {
 

@@ -1,4 +1,4 @@
-define(['loading', './../components/tabbedpage', './../components/backdrop', 'focusManager', 'playbackManager'], function (loading, tabbedPage, themeBackdrop, focusManager, playbackManager) {
+define(['loading', './../components/tabbedpage', './../components/backdrop', 'focusManager', 'playbackManager', 'inputManager'], function (loading, tabbedPage, themeBackdrop, focusManager, playbackManager, inputManager) {
 
     var themeId = 'existential';
 
@@ -76,8 +76,48 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
         var needsRefresh;
 
         updateFooterClock();
-
         setInterval(updateFooterClock, 50000);
+
+        inputManager.on(window, onInputCommand);
+
+        function onInputCommand(e) {
+
+            var ral = document.querySelector('.latestSection');
+            var views = document.querySelector('.userViewNames');
+
+            switch (e.detail.command) {
+                case 'up':
+                    e.preventDefault();
+
+                    ral.classList.add('active');
+
+                    setTimeout(function () {
+                        focusManager.autoFocus(ral);
+                    }, 600);
+
+                    console.log("Up Button Pressed!!!");
+                    break;
+                case 'down':
+                    e.preventDefault();
+
+                    console.log('ral.classList', ral.classList);
+
+                    if (ral.classList.contains('active'))
+                    {
+                        ral.classList.remove('active');
+                        focusManager.autoFocus(views);
+                    }
+                    else {
+                        alert("No active class, we should show sub-menu ;)");
+                    }
+
+                    console.log("Down Button Pressed!!!");
+                    break;
+                default:
+                    break;
+            }
+        }
+
 
         function reloadTabData(tabView) {
 
@@ -90,32 +130,32 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
             var itemId = card ? card.getAttribute('data-id') : null;
             var parentItemsContainer = activeElement ? parentWithClass(activeElement, 'itemsContainer') : null;
 
-            tabView.loadData(true).then(function () {
-
-                var tabView = self.tabView;
-
-                if (!activeElement || !document.body.contains(activeElement)) {
-
-                    // need to re-focus
-                    if (itemId) {
-                        card = tabView.element.querySelector('*[data-id=\'' + itemId + '\']');
-
-                        if (card) {
-
-                            var newParentItemsContainer = parentWithClass(card, 'itemsContainer');
-
-                            if (newParentItemsContainer == parentItemsContainer) {
-                                focusManager.focus(card);
-                                return;
-                            }
-                        }
-                    }
-
-                    var focusParent = parentItemsContainer && document.body.contains(parentItemsContainer) ? parentItemsContainer : tabView.element;
-                    focusManager.autoFocus(focusParent);
-                }
-
-            });
+            // tabView.loadData(true).then(function () {
+            //
+            //     var tabView = self.tabView;
+            //
+            //     if (!activeElement || !document.body.contains(activeElement)) {
+            //
+            //         // need to re-focus
+            //         if (itemId) {
+            //             card = tabView.element.querySelector('*[data-id=\'' + itemId + '\']');
+            //
+            //             if (card) {
+            //
+            //                 var newParentItemsContainer = parentWithClass(card, 'itemsContainer');
+            //
+            //                 if (newParentItemsContainer == parentItemsContainer) {
+            //                     focusManager.focus(card);
+            //                     return;
+            //                 }
+            //             }
+            //         }
+            //
+            //         var focusParent = parentItemsContainer && document.body.contains(parentItemsContainer) ? parentItemsContainer : tabView.element;
+            //         focusManager.autoFocus(focusParent);
+            //     }
+            //
+            // });
         }
 
         function onPlaybackStopped() {
@@ -173,6 +213,10 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
                 tabbedPageInstance.renderTabs(result.Items);
                 pageInstance.tabbedPage = tabbedPageInstance;
             });
+
+            var navElement = document.querySelector('.userViewNames');
+            console.log('navElement', navElement);
+            focusManager.autoFocus(navElement);
         }
 
         var isFirstLoad = true;
