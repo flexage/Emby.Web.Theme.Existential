@@ -1,5 +1,7 @@
 define(['loading', 'slyScroller', './focushandler', 'focusManager'], function (loading, slyScroller, focusHandler, focusManager) {
 
+    var themeId = 'existential';
+
     function createHeaderScroller(view, instance, initialTabId) {
 
         var userViewNames = view.querySelector('.userViewNames');
@@ -65,6 +67,20 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager'], function (l
                 instance.setFocusDelay(view, elem);
             }
         }, true);
+
+        userViewNames.addEventListener('click', function (e) {
+
+            var elem = Emby.Dom.parentWithClass(e.target, 'btnUserViewHeader');
+
+
+            if (elem) {
+
+                var viewId = elem.getAttribute('data-id');
+
+                Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'movies/movies.html?parentid=' + viewId));
+
+            }
+        });
     }
 
     function selectUserView(page, id, self) {

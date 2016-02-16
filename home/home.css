@@ -112,3 +112,7 @@
     padding-bottom: 10px;
     border-bottom-width: 4px;
 }
+
+.themeContainer.withBackdrop {
+    background-color: transparent;
+}

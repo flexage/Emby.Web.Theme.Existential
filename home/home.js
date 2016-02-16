@@ -118,7 +118,6 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
             }
         }
 
-
         function reloadTabData(tabView) {
 
             if (!needsRefresh) {

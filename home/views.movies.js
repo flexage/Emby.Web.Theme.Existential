@@ -1,4 +1,4 @@
-define(['./spotlight', 'imageLoader', 'focusManager'], function (spotlight, imageLoader, focusManager) {
+define(['./spotlight', 'imageLoader', 'focusManager', './../components/backdrop'], function (spotlight, imageLoader, focusManager, themeBackdrop) {
 
     var themeId = 'existential';
 
@@ -38,6 +38,27 @@ define(['./spotlight', 'imageLoader', 'focusManager'], function (spotlight, imag
         };
 
         return Emby.Models.latestItems(options).then(function (result) {
+            var item = result[0];
+            themeBackdrop.setBackdrops([item]);
+
+            // require(['connectionManager'], function (connectionManager) {
+            //     console.log("LatestItemsResult", result);
+            //
+            //     var apiClient = connectionManager.getApiClient(item.ServerId);
+            //
+            //     // Set default image
+            //     if (item.BackdropImageTags && item.BackdropImageTags.length) {
+            //         var url = apiClient.getScaledImageUrl(item.Id, {
+            //             type: "Backdrop",
+            //             width: 1920,
+            //             tag: item.BackdropImageTags[0]
+            //         });
+            //
+            //         var backdropImage = document.querySelector('.backdropImageContainer');
+            //         console.log('backdropImage', backdropImage);
+            //         backdropImage.innerHTML = '<img class="backdropImage" src="' + url + '" />';
+            //     }
+            // });
 
             var resumeSection = element.querySelector('.latestSection');
 
