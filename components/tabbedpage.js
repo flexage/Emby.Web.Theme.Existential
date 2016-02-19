@@ -69,18 +69,32 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager'], function (l
         }, true);
 
         userViewNames.addEventListener('click', function (e) {
-
             var elem = Emby.Dom.parentWithClass(e.target, 'btnUserViewHeader');
-
-
             if (elem) {
-
                 var viewId = elem.getAttribute('data-id');
-
-                Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'movies/movies.html?parentid=' + viewId));
-
+                var viewType = elem.getAttribute('data-type');
+                //console.log("viewType:" + viewType);
+                switch(viewType) {
+                	case 'movies':
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'movies/movies.html?parentid=' + viewId));
+                	    break;
+                	case 'tvshows':
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'tv/tv.html?parentid=' + viewId));
+                	    break;
+                	case 'music':
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'music/music.html?parentid=' + viewId));
+                	    break;
+                	case 'homevideos':
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'list/list.html?parentid=' + viewId));
+                	    break;
+                	case 'folders':
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'list/list.html?parentid=' + viewId));
+                	    break;
+                	default:
+                		Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'list/list.html?parentid=' + viewId));
+                }
             }
-        });
+        }, true);
     }
 
     function selectUserView(page, id, self) {
