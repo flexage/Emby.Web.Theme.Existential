@@ -230,20 +230,6 @@ define(['./spotlight', 'imageLoader', 'focusManager', './../components/backdrop'
 
         addEventListeners();
 
-
-        var latestSection = document.querySelector('.latestSection');
-        latestSection.addEventListener('focus', function (e) {
-            var elem = Emby.Dom.parentWithClass(e.target, 'itemAction');
-            var itemId = elem.getAttribute('data-id');
-
-            console.log('.latestItem .itemAction | Focus detected | Item ID', itemId);
-
-            Emby.Models.item(itemId).then(function (item) {
-                console.log('Emby.Models.item(itemId)', item);
-                themeBackdrop.setBackdrops([item]);
-            });
-        }, true);
-
         // element.querySelector('.allMoviesCard').addEventListener('click', function () {
         //     Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'movies/movies.html?parentid=' + parentId));
         // });
