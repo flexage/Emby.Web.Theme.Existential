@@ -1,66 +1,26 @@
 define(['focusManager'], function (focusManager) {
 
     var themeId = 'existential';
-	
+
 	function loadLatestRecordings(element) {
 
-        return Emby.Models.liveTvRecordings({
-
-            limit: 6,
+        var options = {
+            limit: 20,
             IsInProgress: false
+        };
 
-        }).then(function (result) {
+        return Emby.Models.liveTvRecordings(options).then(function (result) {
 
-            var section = element.querySelector('.latestRecordingsSection');
+            var section = element.querySelector('.latestSection');
 
             Existential.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
-                shape: 'autoHome',
+                shape: 'backdropCard',
+                rows: 1,
                 width: Existential.CardBuilder.homePortraitWidth
             });
         });
-    }
-
-    function loadNowPlaying(element) {
-
-        return Emby.Models.liveTvRecommendedPrograms({
-
-            IsAiring: true,
-            limit: 9,
-            EnableImageTypes: "Primary"
-
-        }).then(function (result) {
-
-            var section = element.querySelector('.nowPlayingSection');
-
-            Existential.CardBuilder.buildCards(result.Items, {
-                parentContainer: section,
-                itemsContainer: section.querySelector('.itemsContainer'),
-                shape: 'autoHome',
-                width: Existential.CardBuilder.homePortraitWidth,
-                coverImage: true
-            });
-        });
-    }
-
-    function loadUpcomingPrograms(section, options) {
-
-        return Emby.Models.liveTvRecommendedPrograms(options).then(function (result) {
-
-            Existential.CardBuilder.buildCards(result.Items, {
-                parentContainer: section,
-                itemsContainer: section.querySelector('.itemsContainer'),
-                shape: 'autoHome',
-                width: Existential.CardBuilder.homePortraitWidth,
-                coverImage: true
-            });
-        });
-    }
-
-    function gotoTvView(tab, parentId) {
-
-        Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'livetv/livetv.html?tab=' + tab));
     }
 
     function view(element, parentId, autoFocus) {
@@ -74,60 +34,8 @@ define(['focusManager'], function (focusManager) {
 
             return Promise.all([
                 loadLatestRecordings(element),
-                loadNowPlaying(element),
-
-                loadUpcomingPrograms(element.querySelector('.upcomingProgramsSection'), {
-
-                    IsAiring: false,
-                    HasAired: false,
-                    limit: 9,
-                    IsMovie: false,
-                    IsSports: false,
-                    IsKids: false,
-                    IsSeries: true
-
-                }),
-
-                loadUpcomingPrograms(element.querySelector('.upcomingMoviesSection'), {
-
-                    IsAiring: false,
-                    HasAired: false,
-                    limit: 9,
-                    IsMovie: true
-
-                }),
-
-                loadUpcomingPrograms(element.querySelector('.upcomingSportsSection'), {
-
-                    IsAiring: false,
-                    HasAired: false,
-                    limit: 9,
-                    IsSports: true
-
-                }),
-
-                loadUpcomingPrograms(element.querySelector('.upcomingKidsSection'), {
-
-                    IsAiring: false,
-                    HasAired: false,
-                    limit: 9,
-                    IsSports: false,
-                    IsKids: true
-                })
             ]);
         };
-
-        element.querySelector('.guideCard').addEventListener('click', function () {
-            Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'livetv/guide.html'));
-        });
-
-        element.querySelector('.recordingsCard').addEventListener('click', function () {
-            gotoTvView('recordings', parentId);
-        });
-
-        element.querySelector('.scheduledLiveTvCard').addEventListener('click', function () {
-            gotoTvView('scheduled', parentId);
-        });
 
         self.destroy = function () {
 
