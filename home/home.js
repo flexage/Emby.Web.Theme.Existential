@@ -111,8 +111,9 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
                         }
                     }
 
-                    var focusParent = parentItemsContainer && document.body.contains(parentItemsContainer) ? parentItemsContainer : tabView.element;
-                    focusManager.autoFocus(focusParent);
+                    var navElement = document.querySelector('.userViewNames');
+                    console.log('navElement', navElement);
+                    focusManager.autoFocus(navElement);
                 }
 
             });
