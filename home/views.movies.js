@@ -7,7 +7,7 @@ define(['./spotlight', 'imageLoader', 'focusManager', './../components/backdrop'
         var options = {
 
             IncludeItemTypes: "Movie",
-            Limit: 12,
+            Limit: 50,
             ParentId: parentId,
             EnableImageTypes: "Primary,Backdrop,Thumb"
         };
