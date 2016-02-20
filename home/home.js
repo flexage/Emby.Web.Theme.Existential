@@ -75,13 +75,13 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
         var self = this;
         var needsRefresh;
 
+        // Update clock
         updateFooterClock();
         setInterval(updateFooterClock, 50000);
 
+        // Listen for navigation input and override
         inputManager.on(window, onInputCommand);
-
         function onInputCommand(e) {
-
             var ral = document.querySelector('.latestSection');
             var views = document.querySelector('.userViewNames');
 
@@ -90,6 +90,7 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
                     e.preventDefault();
 
                     ral.classList.add('active');
+                    views.classList.add('hidden');
 
                     setTimeout(function () {
                         focusManager.autoFocus(ral);
@@ -105,6 +106,7 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
                     if (ral.classList.contains('active'))
                     {
                         ral.classList.remove('active');
+                        views.classList.remove('hidden');
                         focusManager.autoFocus(views);
                     }
                     else {

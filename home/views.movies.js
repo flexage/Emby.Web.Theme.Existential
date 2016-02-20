@@ -190,15 +190,22 @@ define(['./spotlight', 'imageLoader', 'focusManager', './../components/backdrop'
     function addEventListeners() {
         var latestSection = document.querySelector('.latestSection');
         latestSection.addEventListener('focus', function (e) {
-            var elem = Emby.Dom.parentWithClass(e.target, 'itemAction');
-            var itemId = elem.getAttribute('data-id');
+            if(window.Existential.debounce)
+            {
+                console.log('window.Existential.debounce', 'DEBOUNCING 400ms...')
+                window.Existential.debounce(function() {
+                    console.log('window.Existential.debounce', 'DEBOUNCE RESOLVED.')
+                    var elem = Emby.Dom.parentWithClass(e.target, 'itemAction');
+                    var itemId = elem.getAttribute('data-id');
 
-            console.log('.latestItem .itemAction | Focus detected | Item ID', itemId);
+                    console.log('.latestItem .itemAction | Focus detected | Item ID', itemId);
 
-            Emby.Models.item(itemId).then(function (item) {
-                console.log('Emby.Models.item(itemId)', item);
-                themeBackdrop.setBackdrops([item]);
-            });
+                    Emby.Models.item(itemId).then(function (item) {
+                        console.log('Emby.Models.item(itemId)', item);
+                        themeBackdrop.setBackdrops([item]);
+                    });
+                }, 400);
+            }
         }, true);
     }
 

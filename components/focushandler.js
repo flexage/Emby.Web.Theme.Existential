@@ -173,7 +173,7 @@ define(['imageLoader', 'itemHelper', './backdrop', 'mediaInfo', 'focusManager'],
                 return;
             }
 
-            var html = '';
+            var html = '<div class="mg-md">';
 
             var mediaInfoHtml = mediaInfo.getMediaInfoHtml(item);
 
@@ -205,11 +205,13 @@ define(['imageLoader', 'itemHelper', './backdrop', 'mediaInfo', 'focusManager'],
             if (logoImageUrl) {
                 selectedItemInfoInner.classList.add('selectedItemInfoInnerWithLogo');
 
-                html += '<div class="selectedItemInfoLogo" style="background-image:url(\'' + logoImageUrl + '\');"></div>';
+                html += '<div class="selectedItemInfoLogo" style="background-image:url(\'' + logoImageUrl + '\'); margin-left: 35px;"></div>';
 
             } else {
                 selectedItemInfoInner.classList.remove('selectedItemInfoInnerWithLogo');
             }
+
+            html += "</div>";
 
             selectedItemInfoInner.innerHTML = html;
 

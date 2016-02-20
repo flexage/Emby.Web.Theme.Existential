@@ -27,6 +27,20 @@ define(['playbackManager', 'pluginManager'], function (playbackManager, pluginMa
         }
     }
 
+    window.Existential = window.Existential || {};
+    window.Existential.debounceTimeout = null;
+    window.Existential.debounce = function(func, wait) {
+        console.log('window.Existential.debounce:internal', 'DEBOUNCE INTERNAL');
+
+        if(!wait) {
+            var wait = 250;
+        }
+
+        clearTimeout(window.Existential.debounceTimeout);
+
+        window.Existential.debounceTimeout = setTimeout(func, wait);
+    };
+
     return function () {
 
         var self = this;

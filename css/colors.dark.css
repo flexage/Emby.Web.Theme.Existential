@@ -200,3 +200,11 @@ paper-icon-button[disabled] {
 .sectionTitle {
     color: #ccc;
 }
+
+/* Utility classes */
+.pd-md {
+    padding: 35px;
+}
+.mg-md {
+    margin: 35px;
+}
