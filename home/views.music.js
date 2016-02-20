@@ -1,13 +1,13 @@
 define([], function () {
 
     var themeId = 'existential';
-	
+
 	function loadLatest(element, parentId) {
 
         var options = {
 
             IncludeItemTypes: "Audio",
-            Limit: 9,
+            Limit: 100,
             Fields: "PrimaryImageAspectRatio",
             ParentId: parentId,
             ImageTypeLimit: 1,
@@ -21,187 +21,11 @@ define([], function () {
             Existential.CardBuilder.buildCards(result, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
-                shape: 'autoHome',
+                shape: 'squareCard',
+                rows: 1,
                 width: Existential.CardBuilder.homePortraitWidth
             });
         });
-    }
-
-    function loadPlaylists(element, parentId) {
-
-        var options = {
-
-            SortBy: "SortName",
-            SortOrder: "Ascending",
-            IncludeItemTypes: "Playlist",
-            Recursive: true,
-            ParentId: parentId,
-            Fields: "PrimaryImageAspectRatio,SortName,CumulativeRunTimeTicks,CanDelete",
-            StartIndex: 0,
-            Limit: 9
-        };
-
-        return Emby.Models.playlists(options).then(function (result) {
-
-            var section = element.querySelector('.playlistsSection');
-
-            Existential.CardBuilder.buildCards(result.Items, {
-                parentContainer: section,
-                itemsContainer: section.querySelector('.itemsContainer'),
-                shape: 'autoHome',
-                width: Existential.CardBuilder.homePortraitWidth,
-                showTitle: true
-            });
-        });
-    }
-
-    function loadRecentlyPlayed(element, parentId) {
-
-        var options = {
-
-            SortBy: "DatePlayed",
-            SortOrder: "Descending",
-            IncludeItemTypes: "Audio",
-            Limit: 6,
-            Recursive: true,
-            Fields: "PrimaryImageAspectRatio",
-            Filters: "IsPlayed",
-            ParentId: parentId,
-            ImageTypeLimit: 1,
-            EnableImageTypes: "Primary,Backdrop,Thumb"
-        };
-
-        return Emby.Models.items(options).then(function (result) {
-
-            var section = element.querySelector('.recentlyPlayedSection');
-
-            Existential.CardBuilder.buildCards(result.Items, {
-                parentContainer: section,
-                itemsContainer: section.querySelector('.itemsContainer'),
-                shape: 'autoHome',
-                width: Existential.CardBuilder.homePortraitWidth,
-                action: 'instantmix'
-            });
-        });
-    }
-
-    function loadFrequentlyPlayed(element, parentId) {
-
-        var options = {
-
-            SortBy: "PlayCount",
-            SortOrder: "Descending",
-            IncludeItemTypes: "Audio",
-            Limit: 6,
-            Recursive: true,
-            Fields: "PrimaryImageAspectRatio",
-            Filters: "IsPlayed",
-            ParentId: parentId,
-            ImageTypeLimit: 1,
-            EnableImageTypes: "Primary,Backdrop,Thumb"
-        };
-
-        return Emby.Models.items(options).then(function (result) {
-
-            var section = element.querySelector('.frequentlyPlayedSection');
-
-            Existential.CardBuilder.buildCards(result.Items, {
-                parentContainer: section,
-                itemsContainer: section.querySelector('.itemsContainer'),
-                shape: 'autoHome',
-                width: Existential.CardBuilder.homePortraitWidth,
-                action: 'instantmix'
-            });
-        });
-    }
-
-    function loadFavoriteSongs(element, parentId) {
-
-        var options = {
-
-            SortBy: "Random",
-            IncludeItemTypes: "Audio",
-            Limit: 6,
-            Recursive: true,
-            Fields: "PrimaryImageAspectRatio",
-            Filters: "IsFavorite",
-            ParentId: parentId,
-            ImageTypeLimit: 1,
-            EnableImageTypes: "Primary,Backdrop,Thumb"
-        };
-
-        return Emby.Models.items(options).then(function (result) {
-
-            var section = element.querySelector('.favoriteSongsSection');
-
-            Existential.CardBuilder.buildCards(result.Items, {
-                parentContainer: section,
-                itemsContainer: section.querySelector('.itemsContainer'),
-                shape: 'autoHome',
-                width: Existential.CardBuilder.homePortraitWidth,
-                action: 'instantmix'
-            });
-        });
-    }
-
-    function loadFavoriteAlbums(element, parentId) {
-
-        var options = {
-
-            SortBy: "Random",
-            IncludeItemTypes: "MusicAlbum",
-            Limit: 6,
-            Recursive: true,
-            Fields: "PrimaryImageAspectRatio",
-            Filters: "IsFavorite",
-            ParentId: parentId,
-            ImageTypeLimit: 1,
-            EnableImageTypes: "Primary,Backdrop,Thumb"
-        };
-
-        return Emby.Models.items(options).then(function (result) {
-
-            var section = element.querySelector('.favoriteAlbumsSection');
-
-            Existential.CardBuilder.buildCards(result.Items, {
-                parentContainer: section,
-                itemsContainer: section.querySelector('.itemsContainer'),
-                shape: 'autoHome',
-                width: Existential.CardBuilder.homePortraitWidth
-            });
-        });
-    }
-
-    function loadFavoriteArtists(element, parentId) {
-
-        var options = {
-
-            SortBy: "Random",
-            Limit: 6,
-            Recursive: true,
-            Fields: "PrimaryImageAspectRatio",
-            Filters: "IsFavorite",
-            ParentId: parentId,
-            ImageTypeLimit: 1,
-            EnableImageTypes: "Primary,Backdrop,Thumb"
-        };
-
-        return Emby.Models.artists(options).then(function (result) {
-
-            var section = element.querySelector('.favoriteArtistsSection');
-
-            Existential.CardBuilder.buildCards(result.Items, {
-                parentContainer: section,
-                itemsContainer: section.querySelector('.itemsContainer'),
-                shape: 'autoHome',
-                width: Existential.CardBuilder.homePortraitWidth
-            });
-        });
-    }
-
-    function gotoMusicView(tab, parentId) {
-
-        Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'music/music.html?tab=' + tab + "&parentid=" + parentId));
     }
 
     function view(element, parentId, autoFocus) {
@@ -219,26 +43,8 @@ define([], function () {
 
             return Promise.all([
                 loadLatest(element, parentId),
-                loadPlaylists(element, parentId),
-                loadRecentlyPlayed(element, parentId),
-                loadFrequentlyPlayed(element, parentId),
-                loadFavoriteSongs(element, parentId),
-                loadFavoriteAlbums(element, parentId),
-                loadFavoriteArtists(element, parentId)
             ]);
         };
-
-        element.querySelector('.artistsCard').addEventListener('click', function () {
-            gotoMusicView('albumartists', parentId);
-        });
-
-        element.querySelector('.albumsCard').addEventListener('click', function () {
-            gotoMusicView('albums', parentId);
-        });
-
-        element.querySelector('.genresCard').addEventListener('click', function () {
-            gotoMusicView('genres', parentId);
-        });
 
         self.destroy = function () {
 
