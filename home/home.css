@@ -122,6 +122,17 @@
     opacity: 0.2;
 }
 
+.footerSettings paper-icon-button{
+    position: absolute;
+    bottom: 2vh;
+    left: 1vh;
+    opacity: .25;
+    transition: all 0.4s ease-in-out;
+}
+.footerSettings paper-icon-button[focused] {
+    opacity: 1;
+}
+
 .headerClock {
     display: none;
 }

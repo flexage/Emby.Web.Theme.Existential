@@ -1,9 +1,13 @@
 define([], function () {
 
     var themeId = 'existential';
-	
+
 	function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function clearBackdrops() {
+        Emby.Backdrop.clearBackdrops(true);
     }
 
     function setStaticBackdrop() {

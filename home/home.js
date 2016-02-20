@@ -161,29 +161,76 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
             Events.off(playbackManager, 'playbackstop', onPlaybackStopped);
         });
 
+        // Catch events on the view headers
+        var userViewNames = view.querySelector('.userViewNames');
+        userViewNames.addEventListener('click', function (e) {
+            var elem = Emby.Dom.parentWithClass(e.target, 'btnUserViewHeader');
+            if (elem) {
+                var viewId = elem.getAttribute('data-id');
+                var viewType = elem.getAttribute('data-type');
+                //console.log("viewType:" + viewType);
+
+                Emby.Backdrop.clear();
+
+                switch(viewType) {
+                	case 'movies':
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'movies/movies.html?parentid=' + viewId));
+                	    break;
+                	case 'tvshows':
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'tv/tv.html?parentid=' + viewId));
+                	    break;
+                	case 'music':
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'music/music.html?tab=albumartists&parentid=' + viewId));
+                	    break;
+                	case 'homevideos':
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'list/list.html?parentid=' + viewId));
+                	    break;
+                	case 'folders':
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'list/list.html?parentid=' + viewId));
+                	    break;
+                	default:
+                		Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'list/list.html?parentid=' + viewId));
+                }
+            }
+        }, true);
+
+        var showSettingsMenu = function () {
+            Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'settings/settings.html'));
+            // Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'list/list.html?parentid=' + viewId));
+        }
+        document.querySelector('.footerSettingsButton').addEventListener('click', function () {
+            Emby.Backdrop.clear();
+            showSettingsMenu();
+        });
+
         // Listen for navigation input and override
-        function onInputCommand(e) {
+        var onInputCommand = function(e) {
             var ral = document.querySelector('.latestSection');
             var views = document.querySelector('.userViewNames');
 
             switch (e.detail.command) {
                 case 'up':
-                    e.preventDefault();
+                    console.log('document.activeElement', document.activeElement);
 
-                    ral.classList.add('active');
-                    views.classList.add('hidden');
+                    if(!document.activeElement.classList.contains('footerSettingsButton'))
+                    {
+                        e.preventDefault();
 
-                    setTimeout(function () {
-                        focusManager.autoFocus(ral);
-                    }, 600);
+                        ral.classList.add('active');
+                        views.classList.add('hidden');
+
+                        setTimeout(function () {
+                            focusManager.autoFocus(ral);
+                        }, 600);
+                    }
 
                     break;
 
                 case 'down':
-                    e.preventDefault();
-
+                    // RAL is active
                     if (ral.classList.contains('active'))
                     {
+                        e.preventDefault();
                         ral.classList.remove('active');
                         views.classList.remove('hidden');
 
@@ -191,8 +238,14 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
                             focusManager.autoFocus(views);
                         }, 600);
                     }
+                    // RAL is not active
                     else {
-                        alert("No active class, we should show sub-menu ;)");
+                        // User Views are visible
+                        if(!views.classList.contains('hidden'))
+                        {
+
+                        }
+                        //alert("No active class, we should show sub-menu ;)");
                     }
 
                     break;
