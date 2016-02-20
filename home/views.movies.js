@@ -14,7 +14,10 @@ define(['./spotlight', 'imageLoader', 'focusManager', './../components/backdrop'
 
         return Emby.Models.latestItems(options).then(function (result) {
             var item = result[0];
-            themeBackdrop.setBackdrops([item]);
+
+            if(item.BackdropImageTags.length){
+                themeBackdrop.setBackdrops([item]);
+            }
 
             var latestSection = element.querySelector('.latestSection');
 
