@@ -79,47 +79,6 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
         updateFooterClock();
         setInterval(updateFooterClock, 50000);
 
-        // Listen for navigation input and override
-        inputManager.on(window, onInputCommand);
-        function onInputCommand(e) {
-            var ral = document.querySelector('.latestSection');
-            var views = document.querySelector('.userViewNames');
-
-            switch (e.detail.command) {
-                case 'up':
-                    e.preventDefault();
-
-                    ral.classList.add('active');
-                    views.classList.add('hidden');
-
-                    setTimeout(function () {
-                        focusManager.autoFocus(ral);
-                    }, 600);
-
-                    break;
-
-                case 'down':
-                    e.preventDefault();
-
-                    if (ral.classList.contains('active'))
-                    {
-                        ral.classList.remove('active');
-                        views.classList.remove('hidden');
-
-                        setTimeout(function () {
-                            focusManager.autoFocus(views);
-                        }, 600);
-                    }
-                    else {
-                        alert("No active class, we should show sub-menu ;)");
-                    }
-
-                    break;
-                default:
-                    break;
-            }
-        }
-
         function reloadTabData(tabView) {
 
             if (!needsRefresh) {
@@ -200,6 +159,47 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
 
             Events.off(playbackManager, 'playbackstop', onPlaybackStopped);
         });
+
+        // Listen for navigation input and override
+        function onInputCommand(e) {
+            var ral = document.querySelector('.latestSection');
+            var views = document.querySelector('.userViewNames');
+
+            switch (e.detail.command) {
+                case 'up':
+                    e.preventDefault();
+
+                    ral.classList.add('active');
+                    views.classList.add('hidden');
+
+                    setTimeout(function () {
+                        focusManager.autoFocus(ral);
+                    }, 600);
+
+                    break;
+
+                case 'down':
+                    e.preventDefault();
+
+                    if (ral.classList.contains('active'))
+                    {
+                        ral.classList.remove('active');
+                        views.classList.remove('hidden');
+
+                        setTimeout(function () {
+                            focusManager.autoFocus(views);
+                        }, 600);
+                    }
+                    else {
+                        alert("No active class, we should show sub-menu ;)");
+                    }
+
+                    break;
+                default:
+                    break;
+            }
+        }
+        inputManager.on(window, onInputCommand);
 
         function renderTabs(view, pageInstance) {
 
