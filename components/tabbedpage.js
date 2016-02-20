@@ -82,7 +82,7 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager'], function (l
                 	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'tv/tv.html?parentid=' + viewId));
                 	    break;
                 	case 'music':
-                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'music/music.html?parentid=' + viewId));
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'music/music.html?tab=albumartists&parentid=' + viewId));
                 	    break;
                 	case 'homevideos':
                 	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'list/list.html?parentid=' + viewId));
