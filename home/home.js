@@ -129,32 +129,32 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
             var itemId = card ? card.getAttribute('data-id') : null;
             var parentItemsContainer = activeElement ? parentWithClass(activeElement, 'itemsContainer') : null;
 
-            // tabView.loadData(true).then(function () {
-            //
-            //     var tabView = self.tabView;
-            //
-            //     if (!activeElement || !document.body.contains(activeElement)) {
-            //
-            //         // need to re-focus
-            //         if (itemId) {
-            //             card = tabView.element.querySelector('*[data-id=\'' + itemId + '\']');
-            //
-            //             if (card) {
-            //
-            //                 var newParentItemsContainer = parentWithClass(card, 'itemsContainer');
-            //
-            //                 if (newParentItemsContainer == parentItemsContainer) {
-            //                     focusManager.focus(card);
-            //                     return;
-            //                 }
-            //             }
-            //         }
-            //
-            //         var focusParent = parentItemsContainer && document.body.contains(parentItemsContainer) ? parentItemsContainer : tabView.element;
-            //         focusManager.autoFocus(focusParent);
-            //     }
-            //
-            // });
+            tabView.loadData(true).then(function () {
+
+                var tabView = self.tabView;
+
+                if (!activeElement || !document.body.contains(activeElement)) {
+
+                    // need to re-focus
+                    if (itemId) {
+                        card = tabView.element.querySelector('*[data-id=\'' + itemId + '\']');
+
+                        if (card) {
+
+                            var newParentItemsContainer = parentWithClass(card, 'itemsContainer');
+
+                            if (newParentItemsContainer == parentItemsContainer) {
+                                focusManager.focus(card);
+                                return;
+                            }
+                        }
+                    }
+
+                    var focusParent = parentItemsContainer && document.body.contains(parentItemsContainer) ? parentItemsContainer : tabView.element;
+                    focusManager.autoFocus(focusParent);
+                }
+
+            });
         }
 
         function onPlaybackStopped() {
@@ -180,7 +180,6 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
 
                 renderTabs(view, self);
             }
-
         });
 
         view.addEventListener('viewhide', function () {
@@ -203,19 +202,19 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
         function renderTabs(view, pageInstance) {
 
             Emby.Models.userViews().then(function (result) {
-
                 var tabbedPageInstance = new tabbedPage(view, {
                     handleFocus: true,
                     immediateSpeed: 100
                 });
+
                 tabbedPageInstance.loadViewContent = loadViewContent;
                 tabbedPageInstance.renderTabs(result.Items);
                 pageInstance.tabbedPage = tabbedPageInstance;
-            });
 
-            var navElement = document.querySelector('.userViewNames');
-            console.log('navElement', navElement);
-            focusManager.autoFocus(navElement);
+                var navElement = document.querySelector('.userViewNames');
+                console.log('navElement', navElement);
+                focusManager.autoFocus(navElement);
+            });
         }
 
         var isFirstLoad = true;
