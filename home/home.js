@@ -96,24 +96,24 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
                         focusManager.autoFocus(ral);
                     }, 600);
 
-                    console.log("Up Button Pressed!!!");
                     break;
+
                 case 'down':
                     e.preventDefault();
-
-                    console.log('ral.classList', ral.classList);
 
                     if (ral.classList.contains('active'))
                     {
                         ral.classList.remove('active');
                         views.classList.remove('hidden');
-                        focusManager.autoFocus(views);
+
+                        setTimeout(function () {
+                            focusManager.autoFocus(views);
+                        }, 600);
                     }
                     else {
                         alert("No active class, we should show sub-menu ;)");
                     }
 
-                    console.log("Down Button Pressed!!!");
                     break;
                 default:
                     break;
