@@ -1,4 +1,4 @@
-define([], function () {
+define(['./../components/backdrop'], function (themeBackdrop) {
 
     function loadAll(element, parentId, autoFocus) {
 
@@ -10,8 +10,12 @@ define([], function () {
         };
 
         return Emby.Models.items(options).then(function (result) {
+            var item = result.Items[0];
+            if(item.BackdropImageTags.length){
+                themeBackdrop.setBackdrops([item]);
+            }
 
-            var section = element.querySelector('.allSection');
+            var section = element.querySelector('.latestSection');
 
             // Needed in case the view has been destroyed
             if (!section) {
@@ -21,7 +25,8 @@ define([], function () {
             Existential.CardBuilder.buildCards(result.Items, {
                 parentContainer: section,
                 itemsContainer: section.querySelector('.itemsContainer'),
-                shape: 'autoHome',
+                shape: 'backdropCard',
+                rows: 1,
                 autoFocus: autoFocus,
                 coverImage: true,
                 showTitle: true
