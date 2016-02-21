@@ -10,7 +10,7 @@ html {
     color: #fff;
 }
 
-a {
+/*a {
     color: rgba(232, 19, 154, 0.7);
     outline: none !important;
 }
@@ -199,7 +199,7 @@ paper-icon-button[disabled] {
 
 .sectionTitle {
     color: #ccc;
-}
+}*/
 
 /* Utility classes */
 .pd-md {
