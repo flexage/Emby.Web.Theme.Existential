@@ -87,33 +87,38 @@ section.mainMenu {
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.6s ease-in-out;
+    text-align: center;
 }
 
 .userViewNames > .subMenu.active {
-    max-height: 200px;
+    max-height: 100px;
 }
 .userViewNames > .subMenu paper-button {
-    margin: 0;
-    padding: 2vh;
-    padding-left: 10vh;
+    margin: 0 2vh;
+    min-width: 20vw;
+    padding: 1vh;
+    padding-left: 6vh;
     position: relative;
     border-radius: 0;
-    background: transparent;
+    background: #1a1a1a;
     font-size: 0.6em;
     font-weight: 200;
     color: #fff;
-    opacity: 1 !important;
+    opacity: 0.8 !important;
     text-transform: none;
+    transition: all 0.25s ease-in-out;
 }
 .userViewNames .subMenu paper-button iron-icon {
     box-sizing: border-box;
     height: 100%;
-    width: 8vh;
+    width: 6vh;
     padding: 2vh;
     position: absolute;
     top: 0;
     left: 0;
-    background: transparent;
+    background: #222;
+    transition: all 0.25s ease-in-out;
+    opacity: 0.9 !important;
 }
 .userViewNames .subMenu paper-button[focused] {
     background-color: rgba(232, 19, 154, 0.7);

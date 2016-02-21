@@ -163,6 +163,7 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
 
         // Catch events on the view headers
         var userViewNames = view.querySelector('.userViewNames');
+
         userViewNames.addEventListener('click', function (e) {
             var elem = Emby.Dom.parentWithClass(e.target, 'btnUserViewHeader');
             if (elem) {
@@ -194,6 +195,156 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
             }
         }, true);
 
+
+        function renderSubMenuButtons(items) {
+            var html = '';
+            for(var item in items)
+            {
+                html += '<paper-button data-id="' + items[item].id + '" data-view="' + items[item].viewType + '" data-tab="' + items[item].tab + '"><iron-icon icon="' + items[item].icon + '"></iron-icon> ' + items[item].title + '</paper-button>';
+            }
+
+            return html;
+        }
+
+        userViewNames.addEventListener('focus', function (e) {
+
+            var subMenu = document.querySelector('.subMenu');
+
+            var elem = Emby.Dom.parentWithClass(e.target, 'btnUserViewHeader');
+
+            if (elem) {
+                console.log("userViewNames Focused", elem);
+
+                var viewId = elem.getAttribute('data-id');
+                var viewType = elem.getAttribute('data-type');
+
+                var html = '';
+
+                var items = null;
+
+                switch (viewType) {
+                    case 'movies':
+                        viewName = 'movies';
+
+                        items = [
+                            {
+                                id: viewId,
+                                title: 'Genres',
+                                icon: 'video-library',
+                                viewType: viewName,
+                                tab: 'genres'
+                            },
+                            {
+                                id: viewId,
+                                title: 'Years',
+                                icon: 'today',
+                                viewType: viewName,
+                                tab: 'years'
+                            },
+                            {
+                                id: viewId,
+                                title: 'Unwatched',
+                                icon: 'new-releases',
+                                viewType: viewName,
+                                tab: 'unwatched'
+                            },
+                            {
+                                id: viewId,
+                                title: 'Top Rated',
+                                icon: 'stars',
+                                viewType: viewName,
+                                tab: 'toprated'
+                            }
+                        ];
+                    break;
+                    case 'tvshows':
+                        viewName = 'tv';
+
+                        items = [
+                            {
+                                id: viewId,
+                                title: 'All Series',
+                                icon: 'tv',
+                                viewType: viewName,
+                                tab: 'series'
+                            },
+                            {
+                                id: viewId,
+                                title: 'Upcoming',
+                                icon: 'today',
+                                viewType: viewName,
+                                tab: 'upcoming'
+                            },
+                            {
+                                id: viewId,
+                                title: 'Genres',
+                                icon: 'video-library',
+                                viewType: viewName,
+                                tab: 'genres'
+                            }
+                        ];
+                        break;
+                    case 'channels':
+                        viewName = 'channels';
+                        break;
+                    case 'music':
+                        viewName = 'music';
+                        break;
+                    case 'playlists':
+                        viewName = 'playlists';
+                        break;
+                    case 'boxsets':
+                        viewName = 'collections';
+                        break;
+                    case 'livetv':
+                        viewName = 'livetv';
+                        break;
+                    default:
+                        viewName = 'generic';
+                        break;
+                }
+
+                if(items) {
+                    html = renderSubMenuButtons(items);
+                }
+                
+                subMenu.innerHTML = html;
+            }
+        }, true);
+
+        document.querySelector('.subMenu').addEventListener('click', function (e) {
+            console.log('SubMenu clicked!', e.target);
+
+            var elem = e.target;
+            if (elem) {
+                var viewId = elem.getAttribute('data-id');
+                var viewType = elem.getAttribute('data-view');
+                var viewTab = elem.getAttribute('data-tab');
+
+                Emby.Backdrop.clear();
+
+                switch(viewType) {
+                	case 'movies':
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'movies/movies.html?tab=' + viewTab + '&parentid=' + viewId));
+                	    break;
+                	case 'tv':
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'tv/tv.html?tab=' + viewTab + '&parentid=' + viewId));
+                	    break;
+                	case 'music':
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'music/music.html?tab=' + viewTab + '&parentid=' + viewId));
+                	    break;
+                	case 'homevideos':
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'list/list.html?parentid=' + viewId));
+                	    break;
+                	case 'folders':
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'list/list.html?parentid=' + viewId));
+                	    break;
+                	default:
+                		Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'list/list.html?parentid=' + viewId));
+                }
+            }
+        });
+
         var showSettingsMenu = function () {
             Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'settings/settings.html'));
             // Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'list/list.html?parentid=' + viewId));
@@ -202,6 +353,10 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
             Emby.Backdrop.clear();
             showSettingsMenu();
         });
+
+        // movies
+        // tvshows
+        //
 
         // Listen for navigation input and override
         var onInputCommand = function(e) {
@@ -250,6 +405,8 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
                             // User Views are visible
                             if(!views.classList.contains('hidden') && !subMenu.classList.contains('active'))
                             {
+                                e.preventDefault();
+
                                 subMenu.classList.add('active');
 
                                 setTimeout(function () {
@@ -331,6 +488,7 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
                     var html = this.response;
                     loadViewHtml(page, id, html, viewName, isFirstLoad, self);
                     isFirstLoad = false;
+
                     resolve();
                 }
 
