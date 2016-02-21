@@ -10,15 +10,27 @@
             </div>
         </div>
 
-        <div class="userViewNames">
-            <div class="scrollFrame scrollFrameX" style="white-space: nowrap;">
-                <div class="scrollSlider viewsScrollSlider">
+        <div class="homeNavigation userViewNames">
+            <section class="mainMenu">
+                <div class="scrollFrame scrollFrameX" style="white-space: nowrap;">
+                    <div class="scrollSlider viewsScrollSlider">
+                    </div>
+                </div>
+                <div class="footerClock">{{shortTimeString}}</div>
+            </section>
+            <div class="subMenu">
+                <div class="scrollFrame scrollFrameX" style="white-space: nowrap;">
+                    <div class="scrollSlider viewsScrollSlider">
+                        <paper-button><iron-icon icon="add"></iron-icon> Sub-Menu Item</paper-button>
+
+                    </div>
                 </div>
             </div>
-            <div class="footerClock">{{shortTimeString}}</div>
-            <div class="footerDate">{{shortTimeString}}</div>
-            <div class="footerSettings">
-                <paper-icon-button class="footerSettingsButton xlargePaperIconButton" icon="settings" data-option="settings" title="' + Globalize.translate('Settings') + '"></paper-icon-button>
+            <div class="footer">
+                <div class="footerDate">{{shortTimeString}}</div>
+                <div class="footerSettings">
+                    <paper-icon-button class="footerSettingsButton xlargePaperIconButton" icon="settings" data-option="settings" title="' + Globalize.translate('Settings') + '"></paper-icon-button>
+                </div>
             </div>
         </div>
 

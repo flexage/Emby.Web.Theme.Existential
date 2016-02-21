@@ -207,50 +207,63 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
         var onInputCommand = function(e) {
             var ral = document.querySelector('.latestSection');
             var views = document.querySelector('.userViewNames');
+            var subMenu = document.querySelector('.subMenu');
 
-            switch (e.detail.command) {
-                case 'up':
-                    console.log('document.activeElement', document.activeElement);
+            if(parentWithClass(document.activeElement, 'homeNavigation') || parentWithClass(document.activeElement, 'latestSection'))
+            {
+                switch (e.detail.command) {
+                    case 'up':
+                        console.log('document.activeElement', document.activeElement);
 
-                    if(!document.activeElement.classList.contains('footerSettingsButton'))
-                    {
-                        e.preventDefault();
-
-                        ral.classList.add('active');
-                        views.classList.add('hidden');
-
-                        setTimeout(function () {
-                            focusManager.autoFocus(ral);
-                        }, 600);
-                    }
-
-                    break;
-
-                case 'down':
-                    // RAL is active
-                    if (ral.classList.contains('active'))
-                    {
-                        e.preventDefault();
-                        ral.classList.remove('active');
-                        views.classList.remove('hidden');
-
-                        setTimeout(function () {
-                            focusManager.autoFocus(views);
-                        }, 600);
-                    }
-                    // RAL is not active
-                    else {
-                        // User Views are visible
-                        if(!views.classList.contains('hidden'))
+                        if(parentWithClass(document.activeElement, 'subMenu'))
                         {
-
+                            subMenu.classList.remove('active');
                         }
-                        //alert("No active class, we should show sub-menu ;)");
-                    }
+                        else if(!document.activeElement.classList.contains('footerSettingsButton'))
+                        {
+                            e.preventDefault();
 
-                    break;
-                default:
-                    break;
+                            ral.classList.add('active');
+                            views.classList.add('hidden');
+
+                            setTimeout(function () {
+                                focusManager.autoFocus(ral);
+                            }, 600);
+                        }
+
+                        break;
+
+                    case 'down':
+                        // RAL is active
+                        if (ral.classList.contains('active'))
+                        {
+                            e.preventDefault();
+                            ral.classList.remove('active');
+                            views.classList.remove('hidden');
+
+                            setTimeout(function () {
+                                focusManager.autoFocus(views);
+                            }, 600);
+                        }
+                        // RAL is not active
+                        else {
+                            // User Views are visible
+                            if(!views.classList.contains('hidden') && !subMenu.classList.contains('active'))
+                            {
+                                subMenu.classList.add('active');
+
+                                setTimeout(function () {
+                                    focusManager.autoFocus(subMenu);
+                                }, 600);
+                            }
+                            //alert("No active class, we should show sub-menu ;)");
+                        }
+
+                        break;
+
+                    default:
+                        break;
+                }
             }
         }
         inputManager.on(window, onInputCommand);

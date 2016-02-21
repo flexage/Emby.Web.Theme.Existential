@@ -1,13 +1,8 @@
-/*.wideSpotlightCard {
-    width: 100%;
+.themeHeader {
+    display: none;
 }
 
-.wideSpotlightCard .cardImageContainer {
-    width: auto !important;
-    height: 44.26vh;
-}*/
-
-.themeHeader {
+.headerClock {
     display: none;
 }
 
@@ -15,41 +10,13 @@
     top: 0;
 }
 
-.homePageContent > .scrollFrame,
-.homePageContent > .scrollFrame > .scrollSlider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 0 !important;
-    margin: 0;
+.themeContainer.withBackdrop {
+    background-color: transparent;
 }
 
-.homePageContainer .latestSection {
-    position: absolute;
-    bottom: -40vh;
-    left: 0;
-    z-index: 5;
-    width: auto;
-    margin: 0;
-    padding: 35px 20px;
-    padding-right: 100vh;
-    background-color: rgba(0,0,0,0.7);
-    transition: bottom 0.6s ease-in-out;
-}
-.homePageContainer .sectionTitle {
-    color: #fff;
-    font-size: 1.1em;
-    font-weight: 200;
-    margin-bottom: 35px;
-}
-
-.homePageContainer .latestSection.active {
-    bottom: 0;
-}
-
-.homePageContainer .selectedItemInfo {
+/* Home screen styles
+   ------------------ */
+.homePageContent > .selectedItemInfo {
     display: block;
     min-width: 100%;
     height: auto;
@@ -61,38 +28,122 @@
     background-color: rgba(0,0,0,0.7);
     font-weight: 200;
 }
-.homePageContainer .selectedItemInfo {
 
-}
-
+/* Main Navigation */
 .userViewNames {
     position: absolute;
     bottom: 0vh;
     left: 0;
     z-index: 10;
-    max-width: 100%;
-    padding: 8vh 0 11vh 0;
+    width: 100%;
+    padding: 0;
     background-color: rgba(0, 0, 0, 1);
     font-size: 2em;
     box-sizing: border-box;
     overflow: hidden;
-    padding-right: 268px;
     transition: bottom 0.6s ease-in-out;
-}
-.userViewNames .scrollFrame {
-    overflow: hidden;
 }
 .userViewNames.hidden {
     bottom: -40vh;
 }
 
-.footerClock {
+section.mainMenu {
+    position: relative;
+}
+
+.userViewNames > .mainMenu,
+.userViewNames > .subMenu,
+.userViewNames > .footer {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+.userViewNames > .mainMenu {
+    margin: 5vh 0 0 0;
+}
+
+.userViewNames > .mainMenu .scrollFrame {
+    background-color: rgba(0, 0, 0, 1);
+    font-size: 1em;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-right: 268px;
+    overflow: hidden;
+}
+
+.userViewNames .userViewButtonText {
+    min-width: 300px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom-width: 4px;
+}
+
+/* Sub Menu */
+.userViewNames > .subMenu {
+    margin: 0 0 5vh 0;
+    font-size: 1.2em;
+    background-color: transparent;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.6s ease-in-out;
+}
+
+.userViewNames > .subMenu.active {
+    max-height: 200px;
+}
+.userViewNames > .subMenu paper-button {
+    margin: 0;
+    padding: 2vh;
+    padding-left: 10vh;
+    position: relative;
+    border-radius: 0;
+    background: transparent;
+    font-size: 0.6em;
+    font-weight: 200;
+    color: #fff;
+    opacity: 1 !important;
+    text-transform: none;
+}
+.userViewNames .subMenu paper-button iron-icon {
+    box-sizing: border-box;
+    height: 100%;
+    width: 8vh;
+    padding: 2vh;
     position: absolute;
-    bottom: 15vh;
-    right: 0;
+    top: 0;
+    left: 0;
+    background: transparent;
+}
+.userViewNames .subMenu paper-button[focused] {
+    background-color: rgba(232, 19, 154, 0.7);
+    font-weight: 200 !important;
+}
+.userViewNames .subMenu paper-button[focused] iron-icon {
+    background-color: rgba(232, 19, 154, 0.5);
+}
+
+/* Date and Time*/
+.footerDate {
+    /*position: absolute;
+    bottom: 0;
+    left: 0;
     z-index: 15;
-    width: 150px;
-    padding: 0 3vw 0 0;
+    width: 100%;*/
+    text-align: center;
+    color: #fff;
+    padding: 3vh 0;
+    text-transform: uppercase;
+    font-size: 0.5em;
+    opacity: 0.2;
+}
+
+.footerClock {
+    width: 268px;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
     text-align: center;
     font-size: 1em;
     color: #fff;
@@ -108,24 +159,11 @@
     text-transform: uppercase;
 }
 
-.footerDate {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 15;
-    width: 100%;
-    text-align: center;
-    color: #fff;
-    padding: 3vh 0;
-    text-transform: uppercase;
-    font-size: 0.5em;
-    opacity: 0.2;
-}
 
 .footerSettings paper-icon-button{
     position: absolute;
     bottom: 2vh;
-    left: 1vh;
+    left: 2vh;
     opacity: .25;
     transition: all 0.4s ease-in-out;
 }
@@ -133,17 +171,40 @@
     opacity: 1;
 }
 
-.headerClock {
-    display: none;
+
+/* Dynamic User Views
+   ------------------ */
+.homePageContent > .scrollFrame,
+.homePageContent > .scrollFrame > .scrollSlider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 !important;
+    margin: 0;
 }
 
-.userViewButtonText {
-    width: 300px;
-    text-align: center;
-    padding-bottom: 10px;
-    border-bottom-width: 4px;
+.homePageContainer .sectionTitle {
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 200;
+    margin-bottom: 35px;
 }
 
-.themeContainer.withBackdrop {
-    background-color: transparent;
+/* Latest Items */
+.homePageContainer .latestSection {
+    position: absolute;
+    bottom: -40vh;
+    left: 0;
+    z-index: 5;
+    width: auto;
+    margin: 0;
+    padding: 35px 20px;
+    padding-right: 100vh;
+    background-color: rgba(0,0,0,0.7);
+    transition: bottom 0.6s ease-in-out;
+}
+.homePageContainer .latestSection.active {
+    bottom: 0;
 }
