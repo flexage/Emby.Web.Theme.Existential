@@ -200,7 +200,7 @@ section.mainMenu {
 /* Latest Items */
 .homePageContainer .latestSection {
     position: absolute;
-    bottom: -40vh;
+    bottom: -50vh;
     left: 0;
     z-index: 5;
     width: auto;
