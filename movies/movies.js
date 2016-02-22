@@ -1,4 +1,4 @@
-define(['loading', 'alphapicker', './../components/horizontallist', './../components/tabbedpage', './../components/backdrop'], function (loading, alphaPicker, horizontalList, tabbedPage, themeBackdrop) {
+define(['loading', 'alphapicker', './../components/horizontallist', './../components/verticallist', './../components/tabbedpage', './../components/backdrop'], function (loading, alphaPicker, horizontalList, verticalList, tabbedPage, themeBackdrop) {
 
     return function (view, params) {
 
@@ -215,7 +215,7 @@ define(['loading', 'alphapicker', './../components/horizontallist', './../compon
 
         function renderMovies(page, pageParams, autoFocus, slyFrame, resolve) {
 
-            self.listController = new horizontalList({
+            self.listController = new verticalList({
 
                 itemsContainer: page.querySelector('.contentScrollSlider'),
                 getItemsMethod: function (startIndex, limit) {

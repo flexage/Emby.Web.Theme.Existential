@@ -64,7 +64,8 @@ define(['playbackManager', 'pluginManager'], function (playbackManager, pluginMa
                 'css!' + pluginManager.mapPath(self, 'css/colors.dark'),
                 'css!' + pluginManager.mapPath(self, 'css/paperstyles'),
                 'css!' + pluginManager.mapPath(self, 'css/papericonbutton'),
-                pluginManager.mapPath(self, 'cards/cardbuilder.js')
+                pluginManager.mapPath(self, 'cards/cardbuilder.js'),
+                pluginManager.mapPath(self, 'cards/posterbuilder.js')
             ];
 
             list.push('css!' + pluginManager.mapPath(self, 'css/fonts'));
@@ -133,7 +134,10 @@ define(['playbackManager', 'pluginManager'], function (playbackManager, pluginMa
             routes.push({
                 path: 'movies/movies.html',
                 transition: 'slide',
-                controller: self.id + '/movies/movies'
+                controller: self.id + '/movies/movies',
+                dependencies: [
+                    'css!' + pluginManager.mapPath(self, 'css/library.css')
+                ]
             });
 
             routes.push({
