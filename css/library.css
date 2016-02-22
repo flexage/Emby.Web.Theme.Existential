@@ -50,38 +50,56 @@
 
 .libraryPage .itemScrollFrame {
     display: block;
-    width: 46vw;
+    width: 45vw;
     height: 100%;
     padding: 0;
     margin: 0;
     position: absolute;
     top: 0;
     left: 4vw;
-    background-color: #9933DD;
+    background-color: #222;
+}
+.libraryPage .itemScrollFrame > .scrollSlider {
+    margin: 0;
+    padding: 0;
 }
 
 .libraryPage .posterItem {
-    display: inline-block;
-    width: 10vw;
-    margin: 0;
-    padding: 0;
+    display: block;
+    width: 15vw;
+    float: left;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 2px;
     position: relative;
-    border: none;
-    outline: none;
-    color: #fff;
+    border: 1px solid #222;
+    outline: none !important;
     background-color: #000;
+    color: #fff;
 }
 .libraryPage .posterItem:focus {
-    padding: 20px;
-    background-color: ;
+    background-color: rgba(232, 19, 154, 0.7);
 }
 
 .libraryPage .posterItem > img {
     max-width: 100%;
+    min-width: 100%;
     height: auto;
 }
+.libraryPage .posterItem > .title {
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 1.5vh 0.5vh;
+    font-weight: 200;
+    font-size: 1vw;
+    text-align: left;
+}
 
-
+.clearAfter::after {
+    content: '';
+    display: block;
+    clear: both;
+}
 
 /* Debug */
 .noDisplay {

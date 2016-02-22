@@ -59,6 +59,9 @@ define(['loading', './focushandler', 'focusManager'], function (loading, focusHa
                 //if (options.autoFocus !== false) {
                     setTimeout(function () {
                         var firstCard = options.itemsContainer.querySelector('.posterItem');
+
+                        console.log('firstCard', firstCard);
+
                         if (firstCard) {
                             focusManager.focus(firstCard);
                         }

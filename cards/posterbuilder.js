@@ -6,8 +6,15 @@ define([], function () {
 
         var html = '';
 
+        var counter = 1;
+
         for (var item in items)
         {
+            if (counter == 1)
+            {
+                html += '<div class="clearAfter">';
+            }
+
             var imageUrl = Emby.Models.imageUrl(items[item], { type: 'Primary' });
 
             //Emby.Models.imageUrl(item, { type: 'Primary' });
@@ -24,6 +31,15 @@ define([], function () {
             }
 
             html += '</button>';
+
+            if (counter == 3)
+            {
+                html += '</div>';
+
+                counter = 0;
+            }
+
+            counter++;
         }
 
         options.itemsContainer.innerHTML = html;
