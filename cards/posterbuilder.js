@@ -1,8 +1,10 @@
-define([], function () {
+define(['connectionManager', 'imageLoader'], function (connectionManager, imageLoader) {
 
     function buildPosters(items, options) {
         //alert("BUILDING POSTERS...");
         console.log("BUILDING POSTERS...", items);
+
+        var apiClient = connectionManager.currentApiClient();
 
         var html = '';
 
@@ -15,12 +17,21 @@ define([], function () {
                 html += '<div class="clearAfter">';
             }
 
-            var imageUrl = Emby.Models.imageUrl(items[item], { type: 'Primary' });
+            //var imageUrl = Emby.Models.imageUrl(items[item], { type: 'Primary' });
+
+            var imageUrl = apiClient.getImageUrl(items[item].Id, {
+                type: "Primary",
+                maxHeight: 400,
+                maxWidth: 300,
+                tag: items[item].ImageTags.Primary
+            });
+
 
             //Emby.Models.imageUrl(item, { type: 'Primary' });
 
             html += '<button class="posterItem focusable">';
-            html += '<img src="' + imageUrl + '">';
+            //html += '<img src="' + imageUrl + '">';
+            html += '<div class="posterItemImage lazy" data-src="' + imageUrl + '"></div>';
             html += '<div class="title">';
             html += items[item].Name;
             html += '</div>';
@@ -43,6 +54,8 @@ define([], function () {
         }
 
         options.itemsContainer.innerHTML = html;
+
+        imageLoader.lazyChildren(options.itemsContainer);
     }
 
     var posterBuilder = {
