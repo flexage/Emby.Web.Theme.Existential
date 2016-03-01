@@ -261,6 +261,7 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionM
 
         function libraryItemFocus(e) {
             var itemInfoElement = document.querySelector('.itemInfo');
+            var selectedIndexElement = document.querySelector('.selectedIndex');
             var focused = focusManager.focusableParent(e.target);
 
             console.log('**** focused', focused);
@@ -301,7 +302,54 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionM
                 itemInfoElement.innerHTML = html;
 
                 imageLoader.lazyChildren(itemInfoElement);
+
+
+                var index = focused.getAttribute('data-index');
+                if (index) {
+                    selectedIndexElement.innerHTML = 1 + parseInt(index);
+                }
+
+                var overviewElement = itemInfoElement.querySelector('.overview');
+
+                var overviewHeight = overviewElement.scrollHeight;
+                console.log('overviewElement.clientHeight', overviewElement.clientHeight);
+                console.log('overviewElement.scrollHeight', overviewElement.scrollHeight);
+
+                var scrollTime = 5000;
+
+                //initOverviewScroll(overviewElement, overviewHeight, scrollTime);
+
+                setTimeout(function () {
+                    scrollOverview(overviewElement);
+                }, 2000);
             });
+        }
+
+        function scrollOverview(overviewElement)
+        {
+            var currentPosition = overviewElement.scrollTop;
+            var elementScrollHeight = overviewElement.scrollHeight;
+            var elementClientHeight = overviewElement.clientHeight;
+
+            console.log('currentPosition', currentPosition);
+            console.log('elementScrollHeight', elementScrollHeight);
+            console.log('elementClientHeight', elementClientHeight);
+
+            if(currentPosition >= (elementScrollHeight - elementClientHeight) - 1) {
+                setTimeout(function() {
+                    overviewElement.scrollTop = 0;
+                    setTimeout(function () {
+                        scrollOverview(overviewElement);
+                    }, 2000);
+                }, 3000);
+                return;
+            }
+
+            overviewElement.scrollTop += 1;
+
+            setTimeout(function() {
+                scrollOverview(overviewElement);
+            }, 75);
         }
 
         self.destroy = function () {

@@ -33,7 +33,7 @@ define(['connectionManager', 'imageLoader'], function (connectionManager, imageL
 
             //Emby.Models.imageUrl(item, { type: 'Primary' });
 
-            html += '<button class="posterItem focusable" data-prefix="' + prefix + '" data-id="' + items[item].Id + '">';
+            html += '<button class="posterItem focusable" data-prefix="' + prefix + '" data-id="' + items[item].Id + '" data-index="' + item + '">';
             //html += '<img src="' + imageUrl + '">';
             html += '<div class="posterItemImage lazy" data-src="' + imageUrl + '"></div>';
             html += '<div class="title">';
