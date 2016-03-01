@@ -67,8 +67,8 @@ define(['connectionManager', 'imageLoader'], function (connectionManager, imageL
         buildPosters: buildPosters
     };
 
-    // window.Existential = window.Existential || {};
-    // window.Existential.PosterBuilder = posterBuilder;
+    window.Existential = window.Existential || {};
+    window.Existential.PosterBuilder = posterBuilder;
 
     return posterBuilder;
 });

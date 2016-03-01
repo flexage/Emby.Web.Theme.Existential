@@ -1,4 +1,4 @@
-define(['loading', './focushandler', 'focusManager', '../cards/posterbuilder'], function (loading, focusHandler, focusManager, posterBuilder) {
+define(['loading', './focushandler', 'focusManager'], function (loading, focusHandler, focusManager) {
 
     function verticalList(options) {
 
@@ -48,7 +48,7 @@ define(['loading', './focushandler', 'focusManager', '../cards/posterbuilder'], 
                 var posterOptions = {};
                 posterOptions.itemsContainer = options.itemsContainer;
 
-                posterBuilder.buildPosters(result.Items, posterOptions);
+                Existential.PosterBuilder.buildPosters(result.Items, posterOptions);
 
                 loading.hide();
 
