@@ -1,4 +1,4 @@
-define(['loading', 'alphapicker', './../components/horizontallist', './../components/tabbedpagevertical', './../components/backdrop', './../components/verticallist'], function (loading, alphaPicker, horizontalList, tabbedPage, themeBackdrop, verticalList) {
+define(['loading', './../components/alphapickervertical/alphapickervertical', './../components/horizontallist', './../components/tabbedpagevertical', './../components/backdrop', './../components/verticallist'], function (loading, alphaPicker, horizontalList, tabbedPage, themeBackdrop, verticalList) {
 
     return function (view, params) {
 

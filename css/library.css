@@ -43,14 +43,16 @@
 .libraryPage .alphaPicker {
     display: block;
     width: 100%;
-    height: 93.5vh;
+    height: 100vh;
+    /*height: 93.5vh;*/
     display: block;
     width: 3.5vw;
     height: 100%;
     padding: 0;
     margin: 0;
     position: absolute;
-    top: 6.5vh;
+    top: 0;
+    /*top: 6.5vh;*/
     left: 0;
     /*background-color: #000;*/
 }
@@ -58,18 +60,30 @@
 .libraryPage .alphaPicker > button {
     display: block;
     width: 100%;
-    font-size: 2.4vh;
+    margin: 0.725vh 0;
     text-align: center;
+    font-size: 2.4vh;
+    font-weight: 200;
+}
+
+.libraryPage .alphaPicker > button.selected {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.libraryPage .alphaPicker > button:focus {
+    background-color: rgba(232, 19, 154, 0.7);
 }
 
 .libraryPage .itemScrollFrame {
     display: block;
-    width: 45vw;
-    height: 93.5vh;
+    width: 33vw;
+    height: 100vh;
+    /*height: 93.5vh;*/
     padding: 0;
     margin: 0;
     position: absolute;
-    top: 6.5vh;
+    top: 0;
+    /*top: 6.5vh;*/
     left: 3.5vw;
     background-color: #222;
     border-left: 0.5vw solid #000;
@@ -84,7 +98,7 @@
 
 .libraryPage .posterItem {
     display: block;
-    width: 15vw;
+    width: 11vw;
     float: left;
     box-sizing: border-box;
     margin: 0px;
@@ -107,7 +121,7 @@
 
 .libraryPage .posterItem > .posterItemImage {
     width: 100%;
-    height: 21.7vw;
+    height: 15.7vw;
     background-size: cover;
 }
 
