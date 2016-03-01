@@ -1,6 +1,8 @@
-define(['loading', 'slyScroller', './focushandler', 'focusManager'], function (loading, slyScroller, focusHandler, focusManager) {
+define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionManager', 'imageLoader'], function (loading, slyScroller, focusHandler, focusManager, connectionManager, imageLoader) {
 
     var themeId = 'existential';
+
+    var apiClient = connectionManager.currentApiClient();
 
     function createHeaderScroller(view, instance, initialTabId) {
 
@@ -241,18 +243,65 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager'], function (l
 
         function initFocusHandler(view) {
 
-            if (pageOptions.handleFocus) {
+            // if (pageOptions.handleFocus) {
+            //
+            //     var scrollSlider = view.querySelector('.contentScrollSlider');
+            //
+            //     self.focusHandler = new focusHandler({
+            //         parent: scrollSlider,
+            //         selectedItemInfoInner: selectedItemInfoInner,
+            //         selectedIndexElement: selectedIndexElement,
+            //         animateFocus: pageOptions.animateFocus,
+            //         slyFrame: self.bodySlyFrame
+            //     });
+            // }
 
-                var scrollSlider = view.querySelector('.contentScrollSlider');
+            view.addEventListener('focus', libraryItemFocus, true);
+        }
 
-                self.focusHandler = new focusHandler({
-                    parent: scrollSlider,
-                    selectedItemInfoInner: selectedItemInfoInner,
-                    selectedIndexElement: selectedIndexElement,
-                    animateFocus: pageOptions.animateFocus,
-                    slyFrame: self.bodySlyFrame
+        function libraryItemFocus(e) {
+            var itemInfoElement = document.querySelector('.itemInfo');
+            var focused = focusManager.focusableParent(e.target);
+
+            console.log('**** focused', focused);
+
+            var itemId = focused.getAttribute('data-id');
+            console.log('Item ID', itemId);
+
+            Emby.Models.item(itemId).then(function (item) {
+                console.log('itemResult', item);
+
+                var imageUrlPrimary = apiClient.getImageUrl(item.Id, {
+                    type: "Primary",
+                    maxHeight: 400,
+                    maxWidth: 300,
+                    tag: item.ImageTags.Primary
                 });
-            }
+
+                console.log('imageUrlPrimary', imageUrlPrimary);
+
+                var imageUrlBackdrop = apiClient.getImageUrl(item.Id, {
+                    type: "Backdrop",
+                    maxHeight: 1920,
+                    maxWidth: 1080,
+                    tag: item.BackDropImageTags
+                });
+
+                console.log('imageUrlBackdrop', imageUrlBackdrop);
+
+
+                var html = '';
+                html += '<div class="primary lazy" data-src="' + imageUrlPrimary + '"></div>';
+                html += '<div class="backdrop lazy" data-src="' + imageUrlBackdrop + '"></div>';
+                html += '<div class="textInfo">';
+                html += '<h1 class="name">' + item.Name + '</h1>';
+                html += '<p class="overview">' + item.Overview + '</p>';
+                html += '</div>';
+
+                itemInfoElement.innerHTML = html;
+
+                imageLoader.lazyChildren(itemInfoElement);
+            });
         }
 
         self.destroy = function () {

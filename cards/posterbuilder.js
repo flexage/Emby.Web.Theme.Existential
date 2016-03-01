@@ -1,7 +1,6 @@
 define(['connectionManager', 'imageLoader'], function (connectionManager, imageLoader) {
 
     function buildPosters(items, options) {
-        //alert("BUILDING POSTERS...");
         console.log("BUILDING POSTERS...", items);
 
         var apiClient = connectionManager.currentApiClient();
@@ -34,7 +33,7 @@ define(['connectionManager', 'imageLoader'], function (connectionManager, imageL
 
             //Emby.Models.imageUrl(item, { type: 'Primary' });
 
-            html += '<button class="posterItem focusable" data-prefix="' + prefix + '">';
+            html += '<button class="posterItem focusable" data-prefix="' + prefix + '" data-id="' + items[item].Id + '">';
             //html += '<img src="' + imageUrl + '">';
             html += '<div class="posterItemImage lazy" data-src="' + imageUrl + '"></div>';
             html += '<div class="title">';

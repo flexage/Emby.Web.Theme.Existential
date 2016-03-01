@@ -85,9 +85,9 @@
     top: 0;
     /*top: 6.5vh;*/
     left: 3.5vw;
-    background-color: #222;
-    border-left: 0.5vw solid #000;
-    border-right: 0.5vw solid #000;
+    background-color: #000;
+    /*border-left: 0.5vw solid #000;
+    border-right: 0.5vw solid #000;*/
 }
 .libraryPage .itemScrollFrame > .scrollSlider {
     margin: 0;
@@ -132,6 +132,49 @@
     font-weight: 200;
     font-size: 1vw;
     text-align: left;
+}
+
+.libraryPage .itemInfo {
+    display: block;
+    width: 63.5vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #000;
+}
+
+.libraryPage .itemInfo .primary {
+    display: block;
+    width: 24vh;
+    height: 34.7vh;
+    position: absolute;
+    right: 1vh;
+    bottom: 1vh;
+    background-size: cover;
+}
+
+.libraryPage .itemInfo .backdrop {
+    display: block;
+    width: 100%;
+    height: 63.5vh;
+    background-size: cover;
+}
+
+.libraryPage .itemInfo .textInfo {
+    display: block;
+    box-sizing: border-box;
+    padding: 1vh;
+    padding-right: 25vh;
+    font-weight: 300;
+}
+
+.libraryPage .itemInfo .textInfo .name{
+
+}
+
+.libraryPage .itemInfo .textInfo .overview {
+
 }
 
 .clearAfter::after {
