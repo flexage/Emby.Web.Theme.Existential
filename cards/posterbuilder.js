@@ -26,10 +26,15 @@ define(['connectionManager', 'imageLoader'], function (connectionManager, imageL
                 tag: items[item].ImageTags.Primary
             });
 
+            var prefix = (items[item].SortName || items[item].Name || '')[0];
+
+            if (prefix) {
+                prefix = prefix.toUpperCase();
+            }
 
             //Emby.Models.imageUrl(item, { type: 'Primary' });
 
-            html += '<button class="posterItem focusable">';
+            html += '<button class="posterItem focusable" data-prefix="' + prefix + '">';
             //html += '<img src="' + imageUrl + '">';
             html += '<div class="posterItemImage lazy" data-src="' + imageUrl + '"></div>';
             html += '<div class="title">';
@@ -62,8 +67,8 @@ define(['connectionManager', 'imageLoader'], function (connectionManager, imageL
         buildPosters: buildPosters
     };
 
-    window.Existential = window.Existential || {};
-    window.Existential.PosterBuilder = posterBuilder;
+    // window.Existential = window.Existential || {};
+    // window.Existential.PosterBuilder = posterBuilder;
 
     return posterBuilder;
 });

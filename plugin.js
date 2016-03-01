@@ -1,4 +1,4 @@
-define(['playbackManager', 'pluginManager'], function (playbackManager, pluginManager) {
+define(['playbackManager', 'pluginManager', './themeinfo.js'], function (playbackManager, pluginManager, themeInfo) {
 
     function updateClock() {
 
@@ -45,9 +45,9 @@ define(['playbackManager', 'pluginManager'], function (playbackManager, pluginMa
 
         var self = this;
 
-        self.name = 'Existential';
+        self.name = themeInfo.name;
         self.type = 'theme';
-        self.id = 'existential';
+        self.id = themeInfo.id;
 		var settingsObjectName = self.id + 'Settings';
 
         var dependencyPrefix = self.id;

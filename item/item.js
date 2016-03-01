@@ -1,8 +1,8 @@
-define(['loading', 'datetime', 'playbackManager', 'imageLoader', 'userdataButtons', 'itemHelper', './../components/focushandler', './../components/backdrop', './../components/listview', 'mediaInfo', 'focusManager', './../themesettings'],
-    function (loading, datetime, playbackManager, imageLoader, userdataButtons, itemHelper, focusHandler, themeBackdrop, listview, mediaInfo, focusManager, themeSettings) {
+define(['loading', './../themeinfo', 'datetime', 'playbackManager', 'imageLoader', 'userdataButtons', 'itemHelper', './../components/focushandler', './../components/backdrop', './../components/listview', 'mediaInfo', 'itemShortcuts', 'focusManager', './../themesettings', './../cards/cardbuilder', 'indicators'],
+    function (loading, themeInfo, datetime, playbackManager, imageLoader, userdataButtons, itemHelper, focusHandler, themeBackdrop, listview, mediaInfo, itemShortcuts, focusManager, themeSettings, cardBuilder, indicators) {
 
         var themeId = 'existential';
-		
+
 		function focusMainSection() {
 
             focusManager.autoFocus(this);
@@ -490,6 +490,9 @@ define(['loading', 'datetime', 'playbackManager', 'imageLoader', 'userdataButton
                     enableSideMediaInfo: true
                 });
 
+                itemShortcuts.off(section);
+                itemShortcuts.on(section);
+
                 imageLoader.lazyChildren(section);
             };
 
@@ -771,6 +774,9 @@ define(['loading', 'datetime', 'playbackManager', 'imageLoader', 'userdataButton
                 });
 
                 imageLoader.lazyChildren(section);
+
+                itemShortcuts.off(section);
+                itemShortcuts.on(section);
 
                 // Sometimes this doesn't work without some delay after setting innerHTMl
                 setTimeout(function () {

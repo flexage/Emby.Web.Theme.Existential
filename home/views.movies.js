@@ -1,4 +1,4 @@
-define(['./spotlight', 'imageLoader', 'focusManager', './../components/backdrop'], function (spotlight, imageLoader, focusManager, themeBackdrop) {
+define(['./spotlight', 'imageLoader', 'focusManager', './../cards/cardbuilder', './../themeinfo', 'itemShortcuts'], function (spotlight, imageLoader, focusManager, cardbuilder, themeInfo, itemShortcuts) {
 
     var themeId = 'existential';
 
@@ -21,7 +21,7 @@ define(['./spotlight', 'imageLoader', 'focusManager', './../components/backdrop'
 
             var latestSection = element.querySelector('.latestSection');
 
-            Existential.CardBuilder.buildCards(result, {
+            cardBuilder.buildCards(result, {
                 parentContainer: latestSection,
                 itemsContainer: latestSection.querySelector('.itemsContainer'),
                 shape: 'portraitCard',
@@ -62,6 +62,8 @@ define(['./spotlight', 'imageLoader', 'focusManager', './../components/backdrop'
         };
 
         addEventListeners();
+
+        itemShortcuts.on(element.querySelector('.recommendations'));
 
         self.destroy = function () {
 

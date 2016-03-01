@@ -142,7 +142,7 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager'], function (l
             // If it's the symbol just pick the first card
             if (value == '#') {
 
-                card = contentScrollSlider.querySelector('.card');
+                card = contentScrollSlider.querySelector('.posterItem');
 
                 if (card) {
                     self.bodySlyFrame.toCenter(card, false);
@@ -150,7 +150,7 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager'], function (l
                 }
             }
 
-            card = contentScrollSlider.querySelector('.card[data-prefix^=\'' + value + '\']');
+            card = contentScrollSlider.querySelector('.posterItem[data-prefix^=\'' + value + '\']');
 
             if (card) {
                 self.bodySlyFrame.toCenter(card, false);
@@ -164,7 +164,7 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager'], function (l
             if (index < values.length - 2) {
                 trySelectValue(values[index + 1]);
             } else {
-                var all = contentScrollSlider.querySelectorAll('.card');
+                var all = contentScrollSlider.querySelectorAll('.posterItem');
                 card = all.length ? all[all.length - 1] : null;
 
                 if (card) {
@@ -221,42 +221,18 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager'], function (l
 
         function createHorizontalScroller(view) {
 
-            console.log('tabbedpagevertical->createHorizontal(REALLYVERTICAL)Scroller');
-
             var scrollFrame = view.querySelector('.itemScrollFrame');
-
-            // var options = {
-            //     horizontal: 1,
-            //     itemNav: 0,
-            //     mouseDragging: 1,
-            //     touchDragging: 1,
-            //     slidee: view.querySelector('.contentScrollSlider'),
-            //     itemSelector: '.card',
-            //     smart: true,
-            //     releaseSwing: true,
-            //     scrollBy: 200,
-            //     speed: 340,
-            //     immediateSpeed: pageOptions.immediateSpeed,
-            //     elasticBounds: 1,
-            //     dragHandle: 1,
-            //     dynamicHandle: 1,
-            //     clickBar: 1,
-            //     //centerOffset: window.innerWidth * .05,
-            //     scrollWidth: 200000
-            // };
 
             var options = {
                 horizontal: 0,
                 slidee: view.querySelector('.libraryScrollSlider'),
                 scrollBy: 200,
                 speed: 270,
-                scrollWidth: 50000,
+                scrollWidth: 1000000,
                 immediateSpeed: 100
             };
 
             slyScroller.create(scrollFrame, options).then(function (slyFrame) {
-                console.log('slyFrame created:', slyFrame);
-                console.log('slyFrame.toCenter()', slyFrame.toCenter());
                 self.bodySlyFrame = slyFrame;
                 self.bodySlyFrame.init();
                 initFocusHandler(view, self.bodySlyFrame);
