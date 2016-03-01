@@ -152,12 +152,23 @@
 }
 
 .libraryPage .posterItem > .title {
+    position: relative;
     white-space: nowrap;
     overflow: hidden;
+    box-sizing: border-box;
     padding: 1.5vh 0.5vh;
+    margin-right: 2vw;
     font-weight: 200;
     font-size: 1vw;
     text-align: left;
+}
+
+.libraryPage .posterItem > .iconHd {
+    display: block;
+    width: 2vw;
+    position: absolute;
+    bottom: 1.45vh;
+    right: 0;
 }
 
 .libraryPage .itemInfo {

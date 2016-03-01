@@ -47,6 +47,12 @@ define(['connectionManager', 'imageLoader'], function (connectionManager, imageL
                 html += '<div class="watchFlags">' + watchFlag + '</div>';
             }
             html += '<div class="posterItemImage lazy" data-src="' + imageUrl + '"></div>';
+
+            if(items[item].IsHD)
+            {
+                html += '<iron-icon class="iconHd" icon="hd"></iron-icon>';
+            }
+
             html += '<div class="title">';
             html += items[item].Name;
             html += '</div>';
