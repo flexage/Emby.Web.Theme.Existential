@@ -113,6 +113,32 @@
     background-color: rgba(232, 19, 154, 0.7);
 }
 
+.libraryPage .posterItem > .watchFlags {
+    display: block;
+    width: 1.5vw;
+    height: 1.75vw;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    line-height: 1.75vw;
+    z-index: 50;
+}
+
+.libraryPage .posterItem > .watchFlags::before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    margin-right: 0vw;
+    border-style: solid;
+    border-width: 0 3vw 3vw 0;
+    border-color: transparent rgba(232, 19, 154, 0.7) transparent transparent;
+}
+
 .libraryPage .posterItem > img {
     max-width: 100%;
     min-width: 100%;

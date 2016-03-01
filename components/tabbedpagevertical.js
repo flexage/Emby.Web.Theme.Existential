@@ -331,10 +331,6 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionM
             var elementScrollHeight = overviewElement.scrollHeight;
             var elementClientHeight = overviewElement.clientHeight;
 
-            console.log('currentPosition', currentPosition);
-            console.log('elementScrollHeight', elementScrollHeight);
-            console.log('elementClientHeight', elementClientHeight);
-
             if(currentPosition >= (elementScrollHeight - elementClientHeight) - 1) {
                 setTimeout(function() {
                     overviewElement.scrollTop = 0;

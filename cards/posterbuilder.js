@@ -31,10 +31,21 @@ define(['connectionManager', 'imageLoader'], function (connectionManager, imageL
                 prefix = prefix.toUpperCase();
             }
 
-            //Emby.Models.imageUrl(item, { type: 'Primary' });
+            var watchFlag = '';
+            if(items[item].UserData.PlaybackPositionTicks > 0)
+            {
+                watchFlag = '<iron-icon icon="pause"></iron-icon>';
+            }
+            else if(items[item].UserData.PlayCount == 0)
+            {
+                watchFlag = '<iron-icon icon="star"></iron-icon>';
+            }
 
             html += '<button class="posterItem focusable" data-prefix="' + prefix + '" data-id="' + items[item].Id + '" data-index="' + item + '">';
-            //html += '<img src="' + imageUrl + '">';
+            if(watchFlag != '')
+            {
+                html += '<div class="watchFlags">' + watchFlag + '</div>';
+            }
             html += '<div class="posterItemImage lazy" data-src="' + imageUrl + '"></div>';
             html += '<div class="title">';
             html += items[item].Name;
