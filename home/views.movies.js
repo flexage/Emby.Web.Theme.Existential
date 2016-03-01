@@ -1,4 +1,4 @@
-define(['./spotlight', 'imageLoader', 'focusManager', './../cards/cardbuilder', './../themeinfo', 'itemShortcuts'], function (spotlight, imageLoader, focusManager, cardbuilder, themeInfo, itemShortcuts) {
+define(['./spotlight', 'imageLoader', 'focusManager', './../cards/cardbuilder',, 'itemShortcuts'], function (spotlight, imageLoader, focusManager, cardbuilder, itemShortcuts) {
 
     var themeId = 'existential';
 

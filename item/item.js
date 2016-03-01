@@ -1,5 +1,5 @@
-define(['loading', './../themeinfo', 'datetime', 'playbackManager', 'imageLoader', 'userdataButtons', 'itemHelper', './../components/focushandler', './../components/backdrop', './../components/listview', 'mediaInfo', 'itemShortcuts', 'focusManager', './../themesettings', './../cards/cardbuilder', 'indicators'],
-    function (loading, themeInfo, datetime, playbackManager, imageLoader, userdataButtons, itemHelper, focusHandler, themeBackdrop, listview, mediaInfo, itemShortcuts, focusManager, themeSettings, cardBuilder, indicators) {
+define(['loading', 'datetime', 'playbackManager', 'imageLoader', 'userdataButtons', 'itemHelper', './../components/focushandler', './../components/backdrop', './../components/listview', 'mediaInfo', 'itemShortcuts', 'focusManager', './../themesettings', './../cards/cardbuilder', 'indicators'],
+    function (loading, datetime, playbackManager, imageLoader, userdataButtons, itemHelper, focusHandler, themeBackdrop, listview, mediaInfo, itemShortcuts, focusManager, themeSettings, cardBuilder, indicators) {
 
         var themeId = 'existential';
 
