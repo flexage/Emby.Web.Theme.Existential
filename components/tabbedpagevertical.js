@@ -294,10 +294,20 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionM
                 var html = '';
                 html += '<div class="primary lazy" data-src="' + imageUrlPrimary + '"></div>';
                 html += '<div class="backdrop lazy" data-src="' + imageUrlBackdrop + '"></div>';
+
                 html += '<div class="textInfo">';
                 html += '<h1 class="name">' + item.Name + '</h1>';
+                html += '<h1 class="year">' + item.ProductionYear + '</h1>';
+
+                if(item.Genres.length > 0){
+                    html += '<h2 class="genres">' + item.Genres.join(' / ') + '</h2>';
+                }
+
                 html += '<p class="overview">' + item.Overview + '</p>';
                 html += '</div>';
+                if(item.CommunityRating) {
+                    html += '<div class="communityRating"><span class="rating">' + item.CommunityRating + '</span><span divider>/</span>10</div>';
+                }
 
                 itemInfoElement.innerHTML = html;
 
