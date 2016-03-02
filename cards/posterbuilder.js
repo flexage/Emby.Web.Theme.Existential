@@ -48,6 +48,10 @@ define(['connectionManager', 'imageLoader'], function (connectionManager, imageL
             }
             html += '<div class="posterItemImage lazy" data-src="' + imageUrl + '"></div>';
 
+            // if(items[item].Video3DFormat)
+            // {
+            //     html += '<iron-icon class="iconHd" icon="3d"></iron-icon>';
+            // } else
             if(items[item].IsHD)
             {
                 html += '<iron-icon class="iconHd" icon="hd"></iron-icon>';
