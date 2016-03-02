@@ -1,4 +1,4 @@
-define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionManager', 'imageLoader'], function (loading, slyScroller, focusHandler, focusManager, connectionManager, imageLoader) {
+define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionManager', 'imageLoader', 'inputManager'], function (loading, slyScroller, focusHandler, focusManager, connectionManager, imageLoader, inputManager) {
 
     var themeId = 'existential';
 
@@ -260,12 +260,19 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionM
         }
 
         function libraryItemFocus(e) {
+            var oldSelectedItem = document.querySelector('.selectedItemId')
+            var oldSelectedItemId = '';
+            if(oldSelectedItem) {
+                oldSelectedItemId = oldSelectedItem.getAttribute('data-selected-id');
+            }
             // Build Item Info Pane
             var itemInfoElement = document.querySelector('.itemInfo');
             var selectedIndexElement = document.querySelector('.selectedIndex');
             var focused = focusManager.focusableParent(e.target);
 
             var itemId = focused.getAttribute('data-id');
+
+            if(itemId === oldSelectedItemId) return;
 
             Emby.Models.item(itemId).then(function (item) {
                 console.log('itemResult', item);
@@ -285,6 +292,7 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionM
                 });
 
                 var html = '';
+                html += '<div class="selectedItemId hide" data-selected-id="' + itemId + '"></div>'
                 html += '<div class="primary lazy" data-src="' + imageUrlPrimary + '"></div>';
                 html += '<div class="backdrop lazy" data-src="' + imageUrlBackdrop + '"></div>';
 
@@ -408,6 +416,20 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionM
                 setTimeout(function () {
                     scrollOverview(overviewElement);
                 }, 2000);
+
+
+                // Selected Menu
+                var selectedMenu = document.querySelector('.selectedMenu');
+
+                var html = '';
+                html += '<button>Play</button>';
+                html += '<button>More info</button>';
+                html += '<button>Trailer</button>';
+                html += '<button>Mark as watched</button>';
+
+                selectedMenu.innerHTML = html;
+
+                bindSelectedMenuEvents(selectedMenu);
             });
         }
 
@@ -484,6 +506,56 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionM
                 return i.Channels;
             })[0];
 
+        }
+
+        function bindSelectedMenuEvents(selectedMenu) {
+
+            inputManager.on(window, onInputCommand);
+
+            selectedMenu.addEventListener('click', function(e) {
+                var focussed = focusManager.focusableParent(e.target);
+            });
+        }
+
+        function onInputCommand(e) {
+            console.log('****** onInputCommand');
+            if(Emby.Dom.parentWithClass(document.activeElement, 'selectedMenu'))
+            {
+                console.log('****** if(parentWithClass(document.activeElement, selectedMenu))');
+                var selectedMenu = Emby.Dom.parentWithClass(document.activeElement, 'selectedMenu');
+                var selectedItemId = document.querySelector('.selectedItemId').getAttribute('data-selected-id');
+                console.log('selectedItemId', selectedItemId);
+                var selectedItem = document.querySelector('.libraryScrollSlider [data-id="' + selectedItemId + '"]')
+                console.log('selectedItem', selectedItem);
+
+                switch (e.detail.command) {
+
+                    case 'back':
+                        e.preventDefault();
+                        selectedMenu.classList.add('offScreen');
+                        focusManager.focus(selectedItem);
+                        break;
+                    case 'left':
+                        e.preventDefault();
+                        selectedMenu.classList.add('offScreen');
+                        focusManager.focus(selectedItem);
+                        break;
+                    case 'right':
+                    case 'up':
+                    case 'down':
+                    case 'select':
+                    case 'menu':
+                    case 'info':
+                    case 'play':
+                    case 'playpause':
+                    case 'pause':
+                    case 'fastforward':
+                    case 'rewind':
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
         function updateVertbarClock() {

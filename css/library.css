@@ -224,6 +224,7 @@
     right: 1vh;
     bottom: 1vh;
     background-size: cover;
+    z-index: 10;
 }
 
 .libraryPage .itemInfo .backdrop {
@@ -355,6 +356,47 @@
     font-size: 0.7em;
     font-weight: 300;
     color: #000;
+}
+
+.libraryPage .selectedMenu {
+    display: block;
+    width: 63vw;
+    height: 36vh;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 1vh 1vw;
+    padding-right: 27vh;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+    background-color: #000;
+    opacity: 1;
+    transition: opacity 0.7s ease-in-out;
+}
+
+.libraryPage .selectedMenu.offScreen {
+    display: block;
+    opacity: 0;
+}
+
+.libraryPage .selectedMenu button {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 1vh 1vw;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #fff;
+    font-weight: 200;
+    text-align: left;
+    font-size: 3vh;
+}
+
+.libraryPage .selectedMenu button:focus {
+    background-color: rgba(232, 19, 154, 0.7);
 }
 
 .libraryPage .listNumbers {

@@ -67,8 +67,21 @@ define(['loading', './focushandler', 'focusManager'], function (loading, focusHa
                         }
                     }, 400);
                 //}
+
+                bindPosterEvents(options.itemsContainer);
             });
         };
+
+        function bindPosterEvents(container) {
+            container.addEventListener('click', function(e) {
+                var focused = focusManager.focusableParent(e.target);
+
+                var selectMenu = document.querySelector('.selectedMenu');
+                selectMenu.classList.remove('offScreen');
+
+                focusManager.autoFocus(selectMenu);
+            });
+        }
 
         self.destroy = function () {
 
