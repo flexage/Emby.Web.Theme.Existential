@@ -1,5 +1,18 @@
 define(['focusManager'], function (focusManager) {
 
+    function parentWithClass(elem, className) {
+
+        while (!elem.classList || !elem.classList.contains(className)) {
+            elem = elem.parentNode;
+
+            if (!elem) {
+                return null;
+            }
+        }
+
+        return elem;
+    }
+
     function focus() {
         var selected = this.querySelector('.selected');
 
@@ -80,7 +93,7 @@ define(['focusManager'], function (focusManager) {
 
         function onAlphaPickerClick(e) {
 
-            var alphaPickerButton = Emby.Dom.parentWithClass(e.target, 'alphaPickerButton');
+            var alphaPickerButton = parentWithClass(e.target, 'alphaPickerButton');
 
             if (alphaPickerButton) {
                 var value = alphaPickerButton.getAttribute('data-value');
@@ -100,7 +113,7 @@ define(['focusManager'], function (focusManager) {
                 alphaFocusTimeout = null;
             }
 
-            var alphaPickerButton = Emby.Dom.parentWithClass(e.target, 'alphaPickerButton');
+            var alphaPickerButton = parentWithClass(e.target, 'alphaPickerButton');
 
             if (alphaPickerButton) {
                 alphaFocusedElement = alphaPickerButton;
@@ -110,7 +123,7 @@ define(['focusManager'], function (focusManager) {
 
         function onItemsFocusIn(e) {
 
-            var item = Emby.Dom.parentWithClass(e.target, itemClass);
+            var item = parentWithClass(e.target, itemClass);
 
             if (item) {
                 var prefix = item.getAttribute('data-prefix');

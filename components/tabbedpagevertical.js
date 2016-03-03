@@ -4,6 +4,19 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionM
 
     var apiClient = connectionManager.currentApiClient();
 
+    function parentWithClass(elem, className) {
+
+        while (!elem.classList || !elem.classList.contains(className)) {
+            elem = elem.parentNode;
+
+            if (!elem) {
+                return null;
+            }
+        }
+
+        return elem;
+    }
+
     function createHeaderScroller(view, instance, initialTabId) {
 
         var userViewNames = view.querySelector('.userViewNames');
@@ -54,7 +67,7 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionM
 
         userViewNames.addEventListener('mousedown', function (e) {
 
-            var elem = Emby.Dom.parentWithClass(e.target, 'btnUserViewHeader');
+            var elem = parentWithClass(e.target, 'btnUserViewHeader');
 
             if (elem) {
                 elem.focus();
@@ -63,7 +76,7 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionM
 
         userViewNames.addEventListener('focus', function (e) {
 
-            var elem = Emby.Dom.parentWithClass(e.target, 'btnUserViewHeader');
+            var elem = parentWithClass(e.target, 'btnUserViewHeader');
 
             if (elem) {
                 instance.headerSlyFrame.toCenter(elem);
@@ -519,10 +532,10 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionM
 
         function onInputCommand(e) {
             console.log('****** onInputCommand');
-            if(Emby.Dom.parentWithClass(document.activeElement, 'selectedMenu'))
+            if(parentWithClass(document.activeElement, 'selectedMenu'))
             {
                 console.log('****** if(parentWithClass(document.activeElement, selectedMenu))');
-                var selectedMenu = Emby.Dom.parentWithClass(document.activeElement, 'selectedMenu');
+                var selectedMenu = parentWithClass(document.activeElement, 'selectedMenu');
                 var selectedItemId = document.querySelector('.selectedItemId').getAttribute('data-selected-id');
                 console.log('selectedItemId', selectedItemId);
                 var selectedItem = document.querySelector('.libraryScrollSlider [data-id="' + selectedItemId + '"]')

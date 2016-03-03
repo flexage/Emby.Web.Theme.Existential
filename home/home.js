@@ -165,7 +165,7 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
         var userViewNames = view.querySelector('.userViewNames');
 
         userViewNames.addEventListener('click', function (e) {
-            var elem = Emby.Dom.parentWithClass(e.target, 'btnUserViewHeader');
+            var elem = parentWithClass(e.target, 'btnUserViewHeader');
             if (elem) {
                 var viewId = elem.getAttribute('data-id');
                 var viewType = elem.getAttribute('data-type');
@@ -210,7 +210,7 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
 
             var subMenu = document.querySelector('.subMenu');
 
-            var elem = Emby.Dom.parentWithClass(e.target, 'btnUserViewHeader');
+            var elem = parentWithClass(e.target, 'btnUserViewHeader');
 
             if (elem) {
                 console.log("userViewNames Focused", elem);
@@ -307,7 +307,7 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
                 if(items) {
                     html = renderSubMenuButtons(items);
                 }
-                
+
                 subMenu.innerHTML = html;
             }
         }, true);
