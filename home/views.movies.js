@@ -2,6 +2,19 @@ define(['./spotlight', 'imageLoader', 'focusManager', './../components/backdrop'
 
     var themeId = 'existential';
 
+    function parentWithClass(elem, className) {
+
+        while (!elem.classList || !elem.classList.contains(className)) {
+            elem = elem.parentNode;
+
+            if (!elem) {
+                return null;
+            }
+        }
+
+        return elem;
+    }
+
     function loadLatest(element, parentId) {
 
         var options = {
@@ -37,7 +50,7 @@ define(['./spotlight', 'imageLoader', 'focusManager', './../components/backdrop'
             if(window.Existential.debounce)
             {
                 window.Existential.debounce(function() {
-                    var elem = Emby.Dom.parentWithClass(e.target, 'itemAction');
+                    var elem = parentWithClass(e.target, 'itemAction');
                     var itemId = elem.getAttribute('data-id');
 
                     Emby.Models.item(itemId).then(function (item) {
