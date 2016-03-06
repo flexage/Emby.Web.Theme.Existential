@@ -1,6 +1,6 @@
-define(['./spotlight', 'focusManager', './../components/backdrop'], function (spotlight, focusManager, themeBackdrop) {
+define(['./spotlight', 'focusManager', './../components/backdrop'], function (spotlight, focusManager, skinBackdrop) {
 
-	var themeId = 'existential';
+	var skinId = 'existential';
 
     function loadLatest(element, parentId) {
 
@@ -18,7 +18,7 @@ define(['./spotlight', 'focusManager', './../components/backdrop'], function (sp
 			var item = result[0];
 
             if(item.BackdropImageTags.length){
-                themeBackdrop.setBackdrops([item]);
+                skinBackdrop.setBackdrops([item]);
             }
 
             var section = element.querySelector('.latestSection');
@@ -45,7 +45,7 @@ define(['./spotlight', 'focusManager', './../components/backdrop'], function (sp
                     var itemId = elem.getAttribute('data-id');
 
                     Emby.Models.item(itemId).then(function (item) {
-                        themeBackdrop.setBackdrops([item]);
+                        skinBackdrop.setBackdrops([item]);
                     });
                 }, 400);
             }

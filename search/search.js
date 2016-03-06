@@ -200,7 +200,7 @@ define(['loading', 'alphapicker', 'slyScroller', './../components/focushandler']
         }
 
         function getHeaderElement() {
-            return document.querySelector('.themeHeader');
+            return document.querySelector('.skinHeader');
         }
 
         view.addEventListener('viewshow', function (e) {

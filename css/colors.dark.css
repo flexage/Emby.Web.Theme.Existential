@@ -15,16 +15,16 @@ html {
     outline: none !important;
 }
 
-.themeContainer {
+.skinContainer {
     background: #121212;
 }
 
-    .themeContainer.withBackdrop {
+    .skinContainer.withBackdrop {
         background-color: rgba(6, 6, 6, .9);
         transition: background-color 1000ms ease-out;
     }
 
-        .themeContainer.withBackdrop.detailBackdrop {
+        .skinContainer.withBackdrop.detailBackdrop {
             background-color: rgba(6, 6, 6, .8);
         }
 

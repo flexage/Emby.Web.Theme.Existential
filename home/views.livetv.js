@@ -1,6 +1,6 @@
-define(['focusManager', './../components/backdrop'], function (focusManager, themeBackdrop) {
+define(['focusManager', './../components/backdrop'], function (focusManager, skinBackdrop) {
 
-    var themeId = 'existential';
+    var skinId = 'existential';
 
 	function loadLatestRecordings(element) {
 
@@ -13,7 +13,7 @@ define(['focusManager', './../components/backdrop'], function (focusManager, the
             
             var item = result.Items[0];
             if(item.BackdropImageTags.length){
-                themeBackdrop.setBackdrops([item]);
+                skinBackdrop.setBackdrops([item]);
             }
 
             var section = element.querySelector('.latestSection');

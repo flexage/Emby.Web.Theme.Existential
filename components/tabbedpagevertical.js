@@ -1,6 +1,6 @@
 define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionManager', 'imageLoader', 'inputManager', 'playbackManager'], function (loading, slyScroller, focusHandler, focusManager, connectionManager, imageLoader, inputManager, playbackManager) {
 
-    var themeId = 'existential';
+    var skinId = 'existential';
 
     var apiClient = connectionManager.currentApiClient();
 

@@ -1,4 +1,4 @@
-define(['loading', './../components/alphapickervertical/alphapickervertical', './../components/horizontallist', './../components/tabbedpagevertical', './../components/backdrop', './../components/verticallist'], function (loading, alphaPicker, horizontalList, tabbedPage, themeBackdrop, verticalList) {
+define(['loading', './../components/alphapickervertical/alphapickervertical', './../components/horizontallist', './../components/tabbedpagevertical', './../components/backdrop', './../components/verticallist'], function (loading, alphaPicker, horizontalList, tabbedPage, skinBackdrop, verticalList) {
 
     return function (view, params) {
 
@@ -6,7 +6,7 @@ define(['loading', './../components/alphapickervertical/alphapickervertical', '.
 
         view.addEventListener('viewshow', function (e) {
 
-            themeBackdrop.setStaticBackdrop();
+            skinBackdrop.setStaticBackdrop();
 
             if (!self.tabbedPage) {
                 loading.show();

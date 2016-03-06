@@ -1,7 +1,7 @@
-define(['loading', 'datetime', 'playbackManager', 'imageLoader', 'userdataButtons', 'itemHelper', './../components/focushandler', './../components/backdrop', './../components/listview', 'mediaInfo', 'itemShortcuts', 'focusManager', './../themesettings', './../cards/cardbuilder', 'indicators'],
-    function (loading, datetime, playbackManager, imageLoader, userdataButtons, itemHelper, focusHandler, themeBackdrop, listview, mediaInfo, itemShortcuts, focusManager, themeSettings, cardBuilder, indicators) {
+define(['loading', 'datetime', 'playbackManager', 'imageLoader', 'userdataButtons', 'itemHelper', './../components/focushandler', './../components/backdrop', './../components/listview', 'mediaInfo', 'itemShortcuts', 'focusManager', './../skinsettings', './../cards/cardbuilder', 'indicators'],
+    function (loading, datetime, playbackManager, imageLoader, userdataButtons, itemHelper, focusHandler, skinBackdrop, listview, mediaInfo, itemShortcuts, focusManager, skinSettings, cardBuilder, indicators) {
 
-        var themeId = 'existential';
+        var skinId = 'existential';
 
 		function focusMainSection() {
 
@@ -181,11 +181,11 @@ define(['loading', 'datetime', 'playbackManager', 'imageLoader', 'userdataButton
             })[0] || {};
 
             if (item.VideoType == 'Dvd') {
-                html += '<img class="mediaInfoIcon mediaInfoImageIcon" src="' + Emby.PluginManager.mapPath(themeId, 'css/mediaicons/S_Media_DVD_white.png') + '" />';
+                html += '<img class="mediaInfoIcon mediaInfoImageIcon" src="' + Emby.PluginManager.mapPath(skinId, 'css/mediaicons/S_Media_DVD_white.png') + '" />';
             }
 
             if (item.VideoType == 'BluRay') {
-                html += '<img class="mediaInfoIcon mediaInfoImageIcon" src="' + Emby.PluginManager.mapPath(themeId, 'css/mediaicons/S_Media_BlueRay_white.png') + '" />';
+                html += '<img class="mediaInfoIcon mediaInfoImageIcon" src="' + Emby.PluginManager.mapPath(skinId, 'css/mediaicons/S_Media_BlueRay_white.png') + '" />';
             }
 
             var resolutionText = getResolutionText(item);
@@ -752,7 +752,7 @@ define(['loading', 'datetime', 'playbackManager', 'imageLoader', 'userdataButton
 
                 section.classList.remove('hide');
 
-                if (themeSettings.enableAntiSpoliers()) {
+                if (skinSettings.enableAntiSpoliers()) {
 
                     var isFirstUnseen = true;
                     result.Items.forEach(function (item) {
@@ -1024,7 +1024,7 @@ define(['loading', 'datetime', 'playbackManager', 'imageLoader', 'userdataButton
 
                     // If it's a person, leave the backdrop image from wherever we came from
                     if (item.Type != 'Person') {
-                        themeBackdrop.setBackdrops([item]);
+                        skinBackdrop.setBackdrops([item]);
                         setTitle(item);
                     }
 

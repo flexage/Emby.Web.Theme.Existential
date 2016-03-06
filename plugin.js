@@ -46,7 +46,7 @@ define(['playbackManager', 'pluginManager'], function (playbackManager, pluginMa
         var self = this;
 
         self.name = 'Existential';
-        self.type = 'theme';
+        self.type = 'skin';
         self.id = 'existential';
 		var settingsObjectName = self.id + 'Settings';
 
@@ -92,8 +92,8 @@ define(['playbackManager', 'pluginManager'], function (playbackManager, pluginMa
             });
         };
 
-        define(settingsObjectName, [dependencyPrefix + '/themesettings'], function (themesettings) {
-            return themesettings;
+        define(settingsObjectName, [dependencyPrefix + '/skinsettings'], function (skinsettings) {
+            return skinsettings;
         });
 
         self.getRoutes = function () {
@@ -239,9 +239,9 @@ define(['playbackManager', 'pluginManager'], function (playbackManager, pluginMa
 
             return new Promise(function (resolve, reject) {
 
-                require([settingsObjectName], function (themeSettings) {
+                require([settingsObjectName], function (skinSettings) {
 
-                    themeSettings.unload();
+                    skinSettings.unload();
                     resolve();
                 });
             });
@@ -385,17 +385,17 @@ define(['playbackManager', 'pluginManager'], function (playbackManager, pluginMa
 
             document.querySelector('.headerUserButton').classList.remove('hide');
 
-            require([settingsObjectName], function (themeSettings) {
+            require([settingsObjectName], function (skinSettings) {
 
-                themeSettings.apply();
+                skinSettings.apply();
             });
         }
 
         function onLocalUserSignedOut(e) {
 
-            require([settingsObjectName], function (themeSettings) {
+            require([settingsObjectName], function (skinSettings) {
 
-                themeSettings.unload();
+                skinSettings.unload();
             });
 
             // Put the logo back in the page title
@@ -415,8 +415,8 @@ define(['playbackManager', 'pluginManager'], function (playbackManager, pluginMa
             var path = e.detail.state.path;
 
             var enableSubduedBackdrop = path.indexOf('item.html') == -1 && path.indexOf('nowplaying') == -1;
-            require([self.id + '/components/backdrop'], function (themeBackdrop) {
-                themeBackdrop.subdued(enableSubduedBackdrop);
+            require([self.id + '/components/backdrop'], function (skinBackdrop) {
+                skinBackdrop.subdued(enableSubduedBackdrop);
             });
         }
     }

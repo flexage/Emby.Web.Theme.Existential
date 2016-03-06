@@ -1,6 +1,6 @@
-define(['loading', 'alphapicker', './../components/horizontallist', './../components/focushandler', './../components/tabbedpage', './../components/backdrop', 'focusManager'], function (loading, alphaPicker, horizontalList, focusHandler, tabbedPage, themeBackdrop, focusManager) {
+define(['loading', 'alphapicker', './../components/horizontallist', './../components/focushandler', './../components/tabbedpage', './../components/backdrop', 'focusManager'], function (loading, alphaPicker, horizontalList, focusHandler, tabbedPage, skinBackdrop, focusManager) {
 
-    var themeId = 'existential';
+    var skinId = 'existential';
 
 	return function (view, params) {
 
@@ -8,7 +8,7 @@ define(['loading', 'alphapicker', './../components/horizontallist', './../compon
 
         view.addEventListener('viewshow', function (e) {
 
-            themeBackdrop.setStaticBackdrop();
+            skinBackdrop.setStaticBackdrop();
 
             if (!self.tabbedPage) {
                 loading.show();
@@ -199,7 +199,7 @@ define(['loading', 'alphapicker', './../components/horizontallist', './../compon
                 e.preventDefault();
                 e.stopPropagation();
 
-                Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'list/list.html') + '?parentid=' + parentid + '&genreId=' + value);
+                Emby.Page.show(Emby.PluginManager.mapRoute(skinId, 'list/list.html') + '?parentid=' + parentid + '&genreId=' + value);
 
                 return false;
             }
@@ -380,12 +380,12 @@ define(['loading', 'alphapicker', './../components/horizontallist', './../compon
 
         function renderFavorites(page, pageParams, autoFocus, slyFrame, resolve) {
 
-            fetch(Emby.pluginManager.mapPath(themeId, 'music/views.favorites.html', true), { mode: 'no-cors' }).then(function (response) {
+            fetch(Emby.pluginManager.mapPath(skinId, 'music/views.favorites.html', true), { mode: 'no-cors' }).then(function (response) {
                 return response.text();
             }).then(function (html) {
 
                 var parent = page.querySelector('.contentScrollSlider');
-                parent.innerHTML = Globalize.translateHtml(html, themeId);
+                parent.innerHTML = Globalize.translateHtml(html, skinId);
                 loadFavoriteArtists(parent, pageParams, autoFocus, resolve);
                 loadFavoriteAlbums(parent, pageParams);
             });

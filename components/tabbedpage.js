@@ -1,6 +1,6 @@
 define(['loading', 'slyScroller', './focushandler', 'focusManager'], function (loading, slyScroller, focusHandler, focusManager) {
 
-    var themeId = 'existential';
+    var skinId = 'existential';
 
     function parentWithClass(elem, className) {
 

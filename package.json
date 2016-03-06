@@ -2,9 +2,9 @@
     "name": "existential",
     "displayName": "Existential",
     "version": "1.0.1",
-    "description": "Existential is a clean, modern, and elegant theme.",
+    "description": "Existential is a clean, modern, and elegant skin.",
     "plugin": "plugin.js",
-    "homepage": "http://flexage.github.io/Emby.Web.Theme.Existential/package.json",
+    "homepage": "http://flexage.github.io/Emby.Web.Skin.Existential/package.json",
     "thumb": "",
     "backdrop": ""
 }

@@ -7,7 +7,7 @@ html {
     font-weight: 400 !important;
 }
 
-.themeContainer.withBackdrop {
+.skinContainer.withBackdrop {
     background: radial-gradient(circle, #c8c8c8, #fff);
     background-attachment: fixed;
 }

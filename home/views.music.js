@@ -1,6 +1,6 @@
 define([], function () {
 
-    var themeId = 'existential';
+    var skinId = 'existential';
 
 	function loadLatest(element, parentId) {
 

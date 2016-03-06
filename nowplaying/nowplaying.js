@@ -1,6 +1,6 @@
-define(['playbackManager', 'datetime', './../components/backdrop', 'userdataButtons'], function (playbackManager, datetime, themeBackdrop, userdataButtons) {
+define(['playbackManager', 'datetime', './../components/backdrop', 'userdataButtons'], function (playbackManager, datetime, skinBackdrop, userdataButtons) {
 
-    var themeId = 'existential';
+    var skinId = 'existential';
 	
 	return function (view, params) {
 
@@ -20,7 +20,7 @@ define(['playbackManager', 'datetime', './../components/backdrop', 'userdataButt
             if (item) {
                 setTitle(item);
 
-                themeBackdrop.setBackdrops([item]);
+                skinBackdrop.setBackdrops([item]);
 
                 Existential.CardBuilder.buildCards([item], {
                     shape: 'squareCard',
@@ -63,7 +63,7 @@ define(['playbackManager', 'datetime', './../components/backdrop', 'userdataButt
                 nowPlayingVolumeSlider.disabled = true;
                 nowPlayingPositionSlider.disabled = true;
 
-                themeBackdrop.setBackdrops([]);
+                skinBackdrop.setBackdrops([]);
             }
 
             updatePlaylist();
@@ -255,7 +255,7 @@ define(['playbackManager', 'datetime', './../components/backdrop', 'userdataButt
         }
 
         function getHeaderElement() {
-            return document.querySelector('.themeHeader');
+            return document.querySelector('.skinHeader');
         }
 
         view.addEventListener('viewshow', function (e) {
@@ -317,7 +317,7 @@ define(['playbackManager', 'datetime', './../components/backdrop', 'userdataButt
 
         view.querySelector('.btnPlaylist').addEventListener('click', function () {
 
-            Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'nowplaying/playlist.html'));
+            Emby.Page.show(Emby.PluginManager.mapRoute(skinId, 'nowplaying/playlist.html'));
         });
 
         btnRepeat.addEventListener('click', function () {

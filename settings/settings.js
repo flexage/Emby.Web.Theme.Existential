@@ -1,4 +1,4 @@
-define(['loading', './../themesettings', 'focusManager'], function (loading, themeSettings, focusManager) {
+define(['loading', './../skinsettings', 'focusManager'], function (loading, skinSettings, focusManager) {
 
     return function (view, params) {
 
@@ -20,18 +20,18 @@ define(['loading', './../themesettings', 'focusManager'], function (loading, the
 
         view.addEventListener('viewbeforehide', function (e) {
 
-            themeSettings.enableAntiSpoliers(view.querySelector('.selectEnableEpisodeAntiSpoliers').getValue());
-            themeSettings.dimUnselectedPosters(view.querySelector('.selectDimPosters').getValue());
+            skinSettings.enableAntiSpoliers(view.querySelector('.selectEnableEpisodeAntiSpoliers').getValue());
+            skinSettings.dimUnselectedPosters(view.querySelector('.selectDimPosters').getValue());
 
-            themeSettings.apply();
+            skinSettings.apply();
         });
 
         function renderSettings() {
 
             focusManager.autoFocus(view);
 
-            view.querySelector('.selectEnableEpisodeAntiSpoliers').setValue(themeSettings.enableAntiSpoliers());
-            view.querySelector('.selectDimPosters').setValue(themeSettings.dimUnselectedPosters());
+            view.querySelector('.selectEnableEpisodeAntiSpoliers').setValue(skinSettings.enableAntiSpoliers());
+            view.querySelector('.selectDimPosters').setValue(skinSettings.dimUnselectedPosters());
         }
     }
 

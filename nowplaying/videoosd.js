@@ -12,7 +12,7 @@ define(['playbackManager', 'inputmanager', 'datetime', 'itemHelper', 'mediaInfo'
         var nowPlayingDurationText = view.querySelector('.osdDurationText');
 
         function getHeaderElement() {
-            return document.querySelector('.themeHeader');
+            return document.querySelector('.skinHeader');
         }
 
         function getOsdBottom() {

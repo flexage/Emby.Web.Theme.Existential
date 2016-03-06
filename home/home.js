@@ -1,6 +1,6 @@
-define(['loading', './../components/tabbedpage', './../components/backdrop', 'focusManager', 'playbackManager', 'inputManager'], function (loading, tabbedPage, themeBackdrop, focusManager, playbackManager, inputManager) {
+define(['loading', './../components/tabbedpage', './../components/backdrop', 'focusManager', 'playbackManager', 'inputManager'], function (loading, tabbedPage, skinBackdrop, focusManager, playbackManager, inputManager) {
 
-    var themeId = 'existential';
+    var skinId = 'existential';
 
     function updateFooterClock() {
 
@@ -45,9 +45,9 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
         var homeScrollContent = page.querySelector('.contentScrollSlider');
 
         html = html;
-        homeScrollContent.innerHTML = Globalize.translateHtml(html, themeId);
+        homeScrollContent.innerHTML = Globalize.translateHtml(html, skinId);
 
-        require([themeId + '/home/views.' + viewName], function (viewBuilder) {
+        require([skinId + '/home/views.' + viewName], function (viewBuilder) {
 
             var homePanel = homeScrollContent;
             var tabView = new viewBuilder(homePanel, parentId, autoFocus);
@@ -131,7 +131,7 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
 
             Emby.Page.setTitle('');
 
-            themeBackdrop.setStaticBackdrop();
+            skinBackdrop.setStaticBackdrop();
 
             if (isRestored) {
                 if (self.tabView) {
@@ -175,22 +175,22 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
 
                 switch(viewType) {
                 	case 'movies':
-                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'movies/movies.html?parentid=' + viewId));
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(skinId, 'movies/movies.html?parentid=' + viewId));
                 	    break;
                 	case 'tvshows':
-                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'tv/tv.html?parentid=' + viewId));
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(skinId, 'tv/tv.html?parentid=' + viewId));
                 	    break;
                 	case 'music':
-                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'music/music.html?tab=albumartists&parentid=' + viewId));
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(skinId, 'music/music.html?tab=albumartists&parentid=' + viewId));
                 	    break;
                 	case 'homevideos':
-                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'list/list.html?parentid=' + viewId));
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(skinId, 'list/list.html?parentid=' + viewId));
                 	    break;
                 	case 'folders':
-                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'list/list.html?parentid=' + viewId));
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(skinId, 'list/list.html?parentid=' + viewId));
                 	    break;
                 	default:
-                		Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'list/list.html?parentid=' + viewId));
+                		Emby.Page.show(Emby.PluginManager.mapRoute(skinId, 'list/list.html?parentid=' + viewId));
                 }
             }
         }, true);
@@ -325,29 +325,29 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
 
                 switch(viewType) {
                 	case 'movies':
-                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'movies/movies.html?tab=' + viewTab + '&parentid=' + viewId));
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(skinId, 'movies/movies.html?tab=' + viewTab + '&parentid=' + viewId));
                 	    break;
                 	case 'tv':
-                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'tv/tv.html?tab=' + viewTab + '&parentid=' + viewId));
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(skinId, 'tv/tv.html?tab=' + viewTab + '&parentid=' + viewId));
                 	    break;
                 	case 'music':
-                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'music/music.html?tab=' + viewTab + '&parentid=' + viewId));
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(skinId, 'music/music.html?tab=' + viewTab + '&parentid=' + viewId));
                 	    break;
                 	case 'homevideos':
-                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'list/list.html?parentid=' + viewId));
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(skinId, 'list/list.html?parentid=' + viewId));
                 	    break;
                 	case 'folders':
-                	    Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'list/list.html?parentid=' + viewId));
+                	    Emby.Page.show(Emby.PluginManager.mapRoute(skinId, 'list/list.html?parentid=' + viewId));
                 	    break;
                 	default:
-                		Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'list/list.html?parentid=' + viewId));
+                		Emby.Page.show(Emby.PluginManager.mapRoute(skinId, 'list/list.html?parentid=' + viewId));
                 }
             }
         });
 
         var showSettingsMenu = function () {
-            Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'settings/settings.html'));
-            // Emby.Page.show(Emby.PluginManager.mapRoute(themeId, 'list/list.html?parentid=' + viewId));
+            Emby.Page.show(Emby.PluginManager.mapRoute(skinId, 'settings/settings.html'));
+            // Emby.Page.show(Emby.PluginManager.mapRoute(skinId, 'list/list.html?parentid=' + viewId));
         }
         document.querySelector('.footerSettingsButton').addEventListener('click', function () {
             Emby.Backdrop.clear();
@@ -481,7 +481,7 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
                 }
 
                 var xhr = new XMLHttpRequest();
-                xhr.open('GET', Emby.PluginManager.mapPath(themeId, 'home/views.' + viewName + '.html'), true);
+                xhr.open('GET', Emby.PluginManager.mapPath(skinId, 'home/views.' + viewName + '.html'), true);
 
                 xhr.onload = function (e) {
 

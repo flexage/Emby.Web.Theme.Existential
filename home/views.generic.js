@@ -1,4 +1,4 @@
-define(['./../components/backdrop'], function (themeBackdrop) {
+define(['./../components/backdrop'], function (skinBackdrop) {
 
     function loadAll(element, parentId, autoFocus) {
 
@@ -12,7 +12,7 @@ define(['./../components/backdrop'], function (themeBackdrop) {
         return Emby.Models.items(options).then(function (result) {
             var item = result.Items[0];
             if(item.BackdropImageTags.length){
-                themeBackdrop.setBackdrops([item]);
+                skinBackdrop.setBackdrops([item]);
             }
 
             var section = element.querySelector('.latestSection');
