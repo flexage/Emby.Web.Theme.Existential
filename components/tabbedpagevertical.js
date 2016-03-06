@@ -1,4 +1,4 @@
-define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionManager', 'imageLoader', 'inputManager'], function (loading, slyScroller, focusHandler, focusManager, connectionManager, imageLoader, inputManager) {
+define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionManager', 'imageLoader', 'inputManager', 'playbackManager'], function (loading, slyScroller, focusHandler, focusManager, connectionManager, imageLoader, inputManager, playbackManager) {
 
     var themeId = 'existential';
 
@@ -435,7 +435,14 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionM
                 var selectedMenu = document.querySelector('.selectedMenu');
 
                 var html = '';
-                html += '<button>Play</button>';
+                if(item.UserData.PlaybackPositionTicks > 0)
+                {
+                    html += '<button>Resume from #:##</button>';
+                }
+                else
+                {
+                    html += '<button class="playbackPlay" data-item-id="' + itemId + '">Play</button>';
+                }
                 html += '<button>More info</button>';
                 html += '<button>Trailer</button>';
                 html += '<button>Mark as watched</button>';
@@ -527,6 +534,15 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionM
 
             selectedMenu.addEventListener('click', function(e) {
                 var focussed = focusManager.focusableParent(e.target);
+            });
+
+            selectedMenu.querySelector('.playbackPlay').addEventListener('click', function (e) {
+                var itemId = e.target.getAttribute('data-item-id');
+                Emby.Models.item(itemId).then(function (item) {
+                    playbackManager.play({
+                        items: [item]
+                    });
+                });
             });
         }
 
