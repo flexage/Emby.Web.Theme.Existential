@@ -444,7 +444,12 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionM
                     html += '<button class="playbackPlay" data-item-id="' + itemId + '">Play</button>';
                 }
                 html += '<button>More info</button>';
-                html += '<button>Trailer</button>';
+
+                if(item.LocalTrailerCount > 0)
+                {
+                    html += '<button class="playbackTrailer" data-item-id="' + itemId + '">Trailer</button>';
+                }
+
                 html += '<button>Mark as watched</button>';
 
                 selectedMenu.innerHTML = html;
@@ -536,14 +541,31 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionM
                 var focussed = focusManager.focusableParent(e.target);
             });
 
-            selectedMenu.querySelector('.playbackPlay').addEventListener('click', function (e) {
+            var playbackPlay = selectedMenu.querySelector('.playbackPlay');
+            if(playbackPlay)
+            {
+              playbackPlay.addEventListener('click', function (e) {
+                  var itemId = e.target.getAttribute('data-item-id');
+                  Emby.Models.item(itemId).then(function (item) {
+                      playbackManager.play({
+                          items: [item]
+                      });
+                  });
+              });
+            }
+
+            var playbackTrailer = selectedMenu.querySelector('.playbackTrailer');
+            if(playbackTrailer)
+            {
+              playbackTrailer.addEventListener('click', function (e) {
                 var itemId = e.target.getAttribute('data-item-id');
+                console.log("Playing Trailer for ...", itemId);
                 Emby.Models.item(itemId).then(function (item) {
-                    playbackManager.play({
-                        items: [item]
-                    });
+                  console.log(item);
+                  playbackManager.playTrailer(item);
                 });
-            });
+              });
+            }
         }
 
         function onInputCommand(e) {
