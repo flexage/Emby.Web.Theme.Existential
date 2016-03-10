@@ -437,13 +437,15 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionM
                 var html = '';
                 if(item.UserData.PlaybackPositionTicks > 0)
                 {
-                    html += '<button>Resume from #:##</button>';
+                    // Convert ticks to hours and minutes
+                    var positionTime = Math.ceil((item.UserData.PlaybackPositionTicks / 10000) / 60000);
+
+                    html += '<button class="playbackResume" data-item-id="' + itemId + '">Resume from ' + positionTime + ' minutes</button>';
                 }
-                else
-                {
-                    html += '<button class="playbackPlay" data-item-id="' + itemId + '">Play</button>';
-                }
-                html += '<button>More info</button>';
+
+                html += '<button class="playbackPlay" data-item-id="' + itemId + '">Play</button>';
+
+                html += '<button class="moreInfo" data-item-id="' + itemId + '">More info</button>';
 
                 if(item.LocalTrailerCount > 0)
                 {
@@ -549,6 +551,21 @@ define(['loading', 'slyScroller', './focushandler', 'focusManager', 'connectionM
                   Emby.Models.item(itemId).then(function (item) {
                       playbackManager.play({
                           items: [item]
+                      });
+                  });
+              });
+            }
+
+            var playbackResume = selectedMenu.querySelector('.playbackResume');
+            if(playbackResume)
+            {
+              playbackResume.addEventListener('click', function (e) {
+                  var itemId = e.target.getAttribute('data-item-id');
+                  Emby.Models.item(itemId).then(function (item) {
+                      playbackManager.play({
+                          ids: [itemId],
+                          startPositionTicks: item.UserData.PlaybackPositionTicks,
+                          serverId: item.ServerId
                       });
                   });
               });
