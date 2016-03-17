@@ -1,4 +1,4 @@
-define(['loading', './../components/tabbedpage', './../components/backdrop', 'focusManager', 'playbackManager', 'inputManager'], function (loading, tabbedPage, skinBackdrop, focusManager, playbackManager, inputManager) {
+define(['loading', './../components/tabbedpage', 'backdrop', 'focusManager', 'playbackManager', 'inputManager'], function (loading, tabbedPage, Backdrop, focusManager, playbackManager, inputManager) {
 
     var skinId = 'existential';
 
@@ -131,7 +131,7 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
 
             Emby.Page.setTitle('');
 
-            skinBackdrop.setStaticBackdrop();
+            //Backdrop.setStaticBackdrop();
 
             if (isRestored) {
                 if (self.tabView) {
@@ -171,7 +171,7 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
                 var viewType = elem.getAttribute('data-type');
                 //console.log("viewType:" + viewType);
 
-                Emby.Backdrop.clear();
+                Backdrop.clear();
 
                 switch(viewType) {
                 	case 'movies':
@@ -321,7 +321,7 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
                 var viewType = elem.getAttribute('data-view');
                 var viewTab = elem.getAttribute('data-tab');
 
-                Emby.Backdrop.clear();
+                Backdrop.clear();
 
                 switch(viewType) {
                 	case 'movies':
@@ -350,7 +350,7 @@ define(['loading', './../components/tabbedpage', './../components/backdrop', 'fo
             // Emby.Page.show(Emby.PluginManager.mapRoute(skinId, 'list/list.html?parentid=' + viewId));
         }
         document.querySelector('.footerSettingsButton').addEventListener('click', function () {
-            Emby.Backdrop.clear();
+            Backdrop.clear();
             showSettingsMenu();
         });
 

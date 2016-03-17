@@ -1,4 +1,4 @@
-define(['./spotlight', 'imageLoader', 'focusManager', './../components/backdrop'], function (spotlight, imageLoader, focusManager, skinBackdrop) {
+define(['./spotlight', 'imageLoader', 'focusManager', 'backdrop'], function (spotlight, imageLoader, focusManager, skinBackdrop) {
 
     var skinId = 'existential';
 
